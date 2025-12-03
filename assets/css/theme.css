@@ -67,6 +67,9 @@
 	--line-height-body: 1.6;                /* Use for body copy */
 	--line-height-heading: 1.15;            /* Use for headings where tighter leading is desired */
 
+	--font-sans: 'Raleway', sans-serif;
+	--font-serif: 'Baskervville', serif;
+	--font-mono: 'Ubuntu Mono', monospace;
 	/*
 	 * FLUID SPACING SCALE
 	 *
