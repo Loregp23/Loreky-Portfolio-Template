@@ -59,29 +59,16 @@
    -------------------------------------------------------------------------- */
 @supports (animation-timeline: scroll()) {
 	.parallax-bg {
-		/*
-		 * SCROLL-LINKED ANIMATION
-		 *
-		 * - animation: parallaxShift — name of keyframes to use
-		 * - linear — no easing, direct 1:1 scroll mapping
-		 * - both — applies styles before and after animation
-		 */
+		/* Use image for parallax background */
+		background-image: url("https://ik.imagekit.io/6g9vwtwyq/Ellie%20-%20Lorena%20Garc%C3%ADa%20png.png");
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+		will-change: transform;
+
+		/* SCROLL-LINKED ANIMATION */
 		animation: parallaxShift linear both;
-
-		/*
-		 * SCROLL TIMELINE
-		 *
-		 * scroll(root) = scroll progress of the root scroller (usually <html>)
-		 * Could also use scroll(nearest) for a scrollable container
-		 */
 		animation-timeline: scroll(root);
-
-		/*
-		 * ANIMATION RANGE
-		 *
-		 * 0% 100% = animation runs from top of page to bottom
-		 * You could use "entry 0% entry 100%" for element-specific triggers
-		 */
 		animation-range: 0% 100%;
 	}
 
@@ -113,7 +100,12 @@
  */
 @supports not (animation-timeline: scroll()) {
 	.parallax-bg {
-		background-attachment: fixed;  /* Classic parallax technique */
+		/* Fallback: classic parallax using fixed attachment */
+		background-image: url("https://ik.imagekit.io/6g9vwtwyq/Ellie%20-%20Lorena%20Garc%C3%ADa%20png.png");
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-attachment: fixed;
 	}
 }
 
