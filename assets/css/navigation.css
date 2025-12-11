@@ -25,6 +25,7 @@
 	box-sizing: border-box;
 	padding-left: 74px; /* logo inset */
 	padding-right: 74px; /* links closer to right edge */
+	position: relative; /* create containing block for center mark */
 }
 
 .nav-logo {
@@ -47,4 +48,24 @@
 .nav-links a:hover,
 .nav-links a:focus {
 	color: var(--color-accent);
+}
+
+.nav-center {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	top: 50%;
+	transform: translate(-50%, -50%);
+	pointer-events: none; /* don't block clicks */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 36px; /* reduced from 48px */
+	height: 36px; /* reduced from 48px */
+}
+
+.nav-center svg {
+	width: 100%;
+	height: auto;
+	display: block;
 }
