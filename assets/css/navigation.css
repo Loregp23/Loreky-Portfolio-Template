@@ -2,70 +2,264 @@
    4. Navigation
    -------------------------------------------------------------------------- */
 .nav {
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	z-index: 100;
-	/* From https://css.glass */
-	background: rgba(0, 0, 0, 0.47);
-	border-radius: 0px;
-	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-	backdrop-filter: blur(4.9px);
-	-webkit-backdrop-filter: blur(4.9px);
-	border: 1px solid rgba(0, 0, 0, 0.44);
-	padding: var(--space-md) 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  /* From https://css.glass */
+  background: rgba(0, 0, 0, 0.47);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(4.9px);
+  -webkit-backdrop-filter: blur(4.9px);
+  border: 1px solid rgba(0, 0, 0, 0.44);
+  padding: var(--space-md) 0;
 }
 
 .nav-container {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	width: 100%; /* full viewport width */
-	box-sizing: border-box;
-	padding-left: 74px; /* logo inset */
-	padding-right: 74px; /* links closer to right edge */
-	position: relative; /* create containing block for center mark */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: var(--space-lg);
+  padding-right: var(--space-lg);
+  position: relative; /* create containing block for center mark */
 }
 
 .nav-logo {
-	font-size: var(--text-xl);
-	font-weight: 700;
-	font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-size: var(--text-xl);
+  font-weight: 700;
+  font-family: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
+  z-index: 101;
+  color: #ffffff; /* Always white in both themes */
 }
 
+/* Right side controls wrapper */
+.nav-controls {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  z-index: 101;
+}
+
+/* Theme Toggle - Minimalistic Switch */
+.nav-links-toggle {
+  display: none; /* Hidden on mobile */
+}
+
+.theme-toggle-desktop {
+  display: none; /* Hidden on mobile */
+}
+
+.theme-toggle-mobile {
+  display: block; /* Visible on mobile */
+}
+
+.theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.theme-toggle-track {
+  display: block;
+  width: 44px;
+  height: 24px;
+  background: rgba(255, 255, 255, 0.4); /* More visible in dark mode */
+  border-radius: 12px;
+  position: relative;
+  transition: background 0.3s ease;
+}
+
+.theme-toggle-thumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 20px;
+  height: 20px;
+  background: #ffffff; /* Pure white for better contrast */
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.theme-toggle:hover .theme-toggle-track {
+  background: rgba(255, 255, 255, 0.5); /* Brighter on hover */
+}
+
+/* Light mode active state */
+body.light-mode .theme-toggle-track {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+body.light-mode .theme-toggle-thumb {
+  transform: translateX(20px);
+}
+
+body.light-mode .theme-toggle:hover .theme-toggle-track {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+/* Hamburger Menu Button - Mobile First */
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 101;
+  transition: transform 0.3s ease;
+}
+
+.hamburger:hover {
+  transform: scale(1.1);
+}
+
+.hamburger-line {
+  width: 25px;
+  height: 3px;
+  background-color: #ffffff; /* Always white in both themes */
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Hamburger Animation when Active */
+.hamburger.active .hamburger-line:nth-child(1) {
+  transform: rotate(45deg) translate(7px, 7px);
+}
+
+.hamburger.active .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active .hamburger-line:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* Navigation Links - Mobile First (Hidden by default) */
 .nav-links {
-	display: flex;
-	gap: var(--space-lg);
-	list-style: none;
+  position: fixed;
+  top: 75px; /* Starts right below the navigation bar with safe spacing */
+  left: 100%; /* Hidden off-screen to the right */
+  height: auto; /* Height adjusts to content */
+  width: 100%; /* Full width */
+  /* Darker glassmorphism effect */
+  background: rgba(0, 0, 0, 0.75);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(4.9px);
+  -webkit-backdrop-filter: blur(4.9px);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch; /* Full width items */
+  list-style: none;
+  padding: var(--space-sm) 0 0 0;
+  transition: left 0.3s ease;
+}
+
+.nav-links.active {
+  left: 0; /* Slides in from right */
+}
+
+.nav-links li {
+  width: 100%;
+  text-align: center;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.nav-links li:first-child {
+  border-top: 2px solid rgba(255, 255, 255, 0.3);
 }
 
 .nav-links a {
-	color: var(--color-text-muted);
-	transition: color 0.3s;
+  color: rgba(255, 255, 255, 0.767);
+  font-size: var(--text-lg);
+  transition: color 0.3s, transform 0.3s;
+  display: block;
+  padding: var(--space-lg) var(--space-md);
 }
 
 .nav-links a:hover,
 .nav-links a:focus {
-	color: var(--color-accent);
+  color: var(--color-accent);
+  transform: translateX(-5px);
 }
 
 .nav-center {
-	position: absolute;
-	left: 50%;
-	transform: translateX(-50%);
-	top: 50%;
-	transform: translate(-50%, -50%);
-	pointer-events: none; /* don't block clicks */
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: 36px; /* reduced from 48px */
-	height: 36px; /* reduced from 48px */
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none; /* don't block clicks */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px; /* reduced from 48px */
+  height: 36px; /* reduced from 48px */
 }
 
 .nav-center svg {
-	width: 100%;
-	height: auto;
-	display: block;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Tablet and Desktop - Show normal navigation */
+@media (min-width: 768px) {
+  .hamburger {
+    display: none;
+  }
+
+  .nav-controls {
+    display: none; /* Hide mobile controls wrapper */
+  }
+
+  .theme-toggle-mobile {
+    display: none;
+  }
+
+  .theme-toggle-desktop {
+    display: block;
+  }
+
+  .nav-links-toggle {
+    display: flex; /* Show toggle in nav links */
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav-container {
+    padding-left: 74px;
+    padding-right: 74px;
+  }
+
+  .nav-links {
+    position: static;
+    width: auto;
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    flex-direction: row;
+    gap: var(--space-lg);
+    padding: 0;
+    box-shadow: none;
+  }
+
+  .nav-links li {
+    width: auto;
+    text-align: left;
+    border: none;
+  }
+
+  .nav-links li:first-child {
+    border-top: none;
+  }
+
+  .nav-links a {
+    font-size: var(--text-base);
+    padding: 0;
+    transform: none;
+  }
 }
