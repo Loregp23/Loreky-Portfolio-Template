@@ -97,11 +97,31 @@
       <section id="hero" class="hero">
         <div class="hero-bg parallax-bg"></div>
         <div class="hero-content">
-          <h1 class="hero-title animate-on-scroll">PORTFOLIO</h1>
+          <h1 class="hero-title animate-on-scroll">
+            PORTF<span class="morph-container">
+              <span class="letter-o">O</span>
+              <svg
+                class="star-morph"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 185.47 245.47"
+              >
+                <path
+                  d="M92.74,245.47s-8.55-83.99-28.03-103.48S0,115.73,0,115.73c0,0,45.34-3.16,64.82-22.65C83.52,74.38,92.74,0,92.74,0c0,0,13.42,74.95,31.24,92.77,20.36,20.36,61.49,22.96,61.49,22.96,0,0-43.95,8.54-61.68,26.26-20.46,20.46-31.06,103.48-31.06,103.48Z"
+                  fill="#fff"
+                />
+              </svg> </span
+            >LIO
+          </h1>
           <p class="hero-subtitle animate-on-scroll">
             Illustrator & Visual Artist
           </p>
-          <a href="#projects" class="btn animate-on-scroll">View My Work</a>
+          <button
+            class="glow-on-hover"
+            type="button"
+            onclick="document.getElementById('projects').scrollIntoView({behavior: 'smooth'})"
+          >
+            My Projects
+          </button>
         </div>
         <div class="scroll-indicator">
           <span>Scroll</span>

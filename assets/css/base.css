@@ -23,9 +23,9 @@
 *,
 *::before,
 *::after {
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 /*
@@ -35,7 +35,7 @@
  * This is automatically disabled when prefers-reduced-motion is set.
  */
 html {
-	scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 /*
@@ -47,11 +47,11 @@ html {
  * Line-height 1.6 is optimal for body text readability (1.5-1.7 range).
  */
 body {
-	font-family: var(--font-sans);
-	font-size: var(--text-base);  /* Uses our fluid typography variable */
-	line-height: var(--line-height-body);
-	color: var(--color-text);
-	background-color: var(--color-bg);
+  font-family: var(--font-sans);
+  font-size: var(--text-base); /* Uses our fluid typography variable */
+  line-height: var(--line-height-body);
+  color: var(--color-text);
+  background-color: var(--color-bg);
 }
 
 /*
@@ -62,9 +62,9 @@ body {
  * display: block removes the inline whitespace gap below images.
  */
 img {
-	max-width: 100%;
-	height: auto;
-	display: block;
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
 /*
@@ -74,8 +74,8 @@ img {
  * We'll add specific link styles where needed.
  */
 a {
-	color: inherit;
-	text-decoration: none;
+  color: inherit;
+  text-decoration: none;
 }
 
 /* --------------------------------------------------------------------------
@@ -89,18 +89,18 @@ a {
    This is a WCAG 2.1 Level A requirement for accessible navigation.
    -------------------------------------------------------------------------- */
 .skip-link {
-	position: absolute;
-	top: -100%;                       /* Hidden above viewport */
-	left: 50%;
-	transform: translateX(-50%);      /* Center horizontally */
-	background: var(--color-accent);
-	color: white;
-	padding: var(--space-sm) var(--space-md);
-	border-radius: 0 0 8px 8px;       /* Rounded bottom corners only */
-	z-index: 1000;                    /* Above everything */
-	transition: top 0.3s;
+  position: absolute;
+  top: -100%; /* Hidden above viewport */
+  left: 50%;
+  transform: translateX(-50%); /* Center horizontally */
+  background: #ffffff;
+  color: #000000;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: 0 0 8px 8px; /* Rounded bottom corners only */
+  z-index: 1000; /* Above everything */
+  transition: top 0.3s;
 }
 
 .skip-link:focus {
-	top: 0;  /* Slides into view when focused via keyboard */
+  top: 0; /* Slides into view when focused via keyboard */
 }

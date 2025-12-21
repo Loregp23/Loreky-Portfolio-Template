@@ -314,10 +314,11 @@ function initActiveNav() {
 
         // Update all nav links: highlight matching, reset others
         navLinks.forEach((link) => {
-          link.style.color =
-            link.getAttribute("href") === `#${id}`
-              ? "var(--color-accent)" // Highlighted color
-              : ""; // Reset to default (inherits from CSS)
+          if (link.getAttribute("href") === `#${id}`) {
+            link.classList.add("active");
+          } else {
+            link.classList.remove("active");
+          }
         });
       }
     });
