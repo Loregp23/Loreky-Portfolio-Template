@@ -44,67 +44,188 @@
    -------------------------------------------------------------------------- */
 .about {
   background: var(--color-bg-alt);
+  position: relative;
+  overflow: hidden;
+  padding: 0 !important;
 }
 
-.about-grid {
-  display: grid;
-  gap: var(--space-xl);
+.about .container {
+  width: 100%;
+  max-width: none;
+  margin-inline: auto;
+  padding-left: 0;
+  padding-right: 0;
+  position: relative;
+  min-height: 100%;
 }
 
-@media (min-width: 768px) {
-  .about-grid {
-    grid-template-columns: 1fr 1fr;
-    align-items: start;
-  }
+.about-header {
+  margin-bottom: var(--space-2xl);
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 0;
+}
+
+.about-star {
+  width: 60px;
+  height: auto;
+  margin: 0 auto var(--space-md);
+  display: block;
+}
+
+.about-title {
+  font-size: clamp(2.5rem, 8vw, 6rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  font-family: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
+  color: #ffffff;
+  margin-bottom: var(--space-md);
+  animation: titleGlow 5s ease-in-out infinite;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.about-intro {
+  max-width: 600px;
+  font-size: var(--text-lg);
+  color: var(--color-text);
+  line-height: 1.7;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.about-intro p {
+  margin: 0;
+}
+
+.about-text {
+  margin-bottom: var(--space-2xl);
+  text-align: center;
 }
 
 .about-text p {
   margin-bottom: var(--space-md);
   color: var(--color-text-muted);
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-md);
+.about-content {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  min-height: 400px;
+  width: 100%;
+  position: relative;
 }
 
-.skill-card {
-  background: var(--color-bg);
-  padding: var(--space-md);
-  border-radius: 12px;
-  text-align: center;
+.about-image-left {
+  display: none;
 }
 
-.skill-icon {
-  font-size: var(--text-2xl);
-  display: block;
-  margin-bottom: var(--space-sm);
+.about-left {
+  flex: 1;
+  width: 100%;
+  padding: var(--space-xl) var(--space-md);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 100%;
 }
 
-.skill-card h3 {
-  font-size: var(--text-sm);
-  margin-bottom: var(--space-sm);
+.about-right {
+  display: none;
 }
 
-.skill-bar {
-  height: 6px;
-  background: var(--color-bg-alt);
-  border-radius: 3px;
-  overflow: hidden;
-}
-
-.skill-fill {
+.about-image {
+  width: 100%;
   height: 100%;
-  width: 0;
-  background: #ffffff;
-  border-radius: 3px;
-  transition: width 1s var(--ease-out) 0.3s;
+  border-radius: 0;
+  object-fit: cover;
+  object-position: center center;
+  transform: scale(1);
 }
 
-/* Animate skill bars when revealed */
-[data-reveal-stagger].revealed .skill-fill {
-  width: var(--fill);
+/* Tablet */
+@media (min-width: 768px) {
+  .about-content {
+    min-height: 500px;
+  }
+
+  .about-left {
+    padding: var(--space-2xl);
+  }
+}
+
+/* Desktop: Full size images on left and right sides */
+@media (min-width: 1200px) {
+  .about-content {
+    min-height: 600px;
+    padding-left: 420px;
+    padding-right: 420px;
+  }
+
+  .about-image-left {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 400px;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+
+  .about-left {
+    max-width: 600px;
+  }
+
+  .about-right {
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 400px;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+}
+
+@media (min-width: 1400px) {
+  .about-content {
+    padding-left: 520px;
+    padding-right: 520px;
+  }
+
+  .about-image-left {
+    width: 500px;
+  }
+
+  .about-right {
+    width: 500px;
+  }
+
+  .about-left {
+    max-width: 700px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .about-content {
+    grid-template-columns: 1fr;
+  }
+
+  .about-right {
+    order: 2;
+  }
 }
 
 /* --------------------------------------------------------------------------
