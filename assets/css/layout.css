@@ -71,25 +71,6 @@
   opacity: 1;
 }
 
-/* Parallax scroll effect for active slide (modern browsers) */
-@supports (animation-timeline: scroll()) {
-  .carousel-slide.active {
-    will-change: transform;
-    animation: parallaxShift linear both;
-    animation-timeline: scroll(root);
-    animation-range: 0% 100%;
-  }
-
-  @keyframes parallaxShift {
-    from {
-      transform: translateY(0) scale(1);
-    }
-    to {
-      transform: translateY(-15%) scale(1.1);
-    }
-  }
-}
-
 /* Fallback parallax for older browsers */
 @supports not (animation-timeline: scroll()) {
   .carousel-slide {

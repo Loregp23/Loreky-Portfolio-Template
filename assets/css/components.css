@@ -43,7 +43,12 @@
    7. About Section
    -------------------------------------------------------------------------- */
 .about {
-  background: var(--color-bg-alt);
+  background: rgba(0, 0, 0, 0.47);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(4.9px);
+  -webkit-backdrop-filter: blur(4.9px);
+  border-top: 1px solid rgba(0, 0, 0, 0.44);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.44);
   position: relative;
   overflow: hidden;
   padding: 0 !important;
@@ -229,7 +234,498 @@
 }
 
 /* --------------------------------------------------------------------------
-   8. Projects Section
+   8. Skills Section
+   -------------------------------------------------------------------------- */
+.skills {
+  background: rgba(0, 0, 0, 0.47);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(4.9px);
+  -webkit-backdrop-filter: blur(4.9px);
+  border-top: 1px solid rgba(0, 0, 0, 0.44);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.44);
+  position: relative;
+  overflow: hidden;
+  padding: 0 !important;
+}
+
+.skills .container {
+  width: 100%;
+  max-width: none;
+  margin-inline: 0;
+  padding-left: 0;
+  padding-right: 0;
+  position: relative;
+  min-height: 100%;
+}
+
+.skills-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  width: 100%;
+  position: relative;
+}
+
+.skills-image-left {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-2xl);
+  padding: var(--space-xl);
+  width: 100%;
+  order: 3;
+}
+
+.skills-center {
+  width: 100%;
+  max-width: 800px;
+  padding: var(--space-xl) var(--space-md);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  order: 1;
+}
+
+.skills-image-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 0 var(--space-md);
+  margin-top: -150px;
+  order: 2;
+}
+
+.skills-header {
+  margin-bottom: var(--space-2xl);
+  text-align: center;
+  width: 100%;
+}
+
+.skills-star {
+  width: 60px;
+  height: auto;
+  margin: 0 auto var(--space-md);
+  display: block;
+}
+
+.skills-title {
+  font-size: clamp(2.5rem, 8vw, 6rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  font-family: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
+  color: #ffffff;
+  margin-bottom: var(--space-md);
+  animation: titleGlow 5s ease-in-out infinite;
+}
+
+.skills-intro {
+  max-width: 600px;
+  font-size: var(--text-lg);
+  color: var(--color-text);
+  line-height: 1.7;
+  text-align: center;
+}
+
+.skills-intro p {
+  margin: 0;
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+  .skills-content {
+    min-height: 500px;
+  }
+
+  .skills-center {
+    padding: var(--space-2xl);
+  }
+}
+
+/* Desktop: Full size images on left and right sides */
+@media (min-width: 1200px) {
+  .skills-content {
+    flex-direction: row;
+    align-items: stretch;
+    min-height: 600px;
+    justify-content: space-between;
+  }
+
+  .skills-image-left {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-2xl);
+    padding: var(--space-xl);
+    width: 500px;
+    flex-shrink: 0;
+    order: 0;
+  }
+
+  .skills-center {
+    flex-shrink: 0;
+    flex-grow: 1;
+    width: auto;
+    max-width: 600px;
+    padding: var(--space-2xl);
+    order: 0;
+  }
+
+  .skills-image-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 500px;
+    flex-shrink: 0;
+    padding: 0;
+    order: 0;
+  }
+}
+
+@media (min-width: 1400px) {
+  .skills-image-left {
+    width: 550px;
+    gap: var(--space-3xl);
+  }
+
+  .skills-image-right {
+    width: 550px;
+  }
+
+  .skills-center {
+    max-width: 700px;
+  }
+}
+
+/* Light mode Skills section styling */
+body.light-mode .skills-title {
+  color: #000000;
+}
+
+body.light-mode .skills-star path {
+  fill: #000000;
+}
+
+body.light-mode .skills {
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+/* Skills Icons in Left Side */
+.skills-image-left {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-2xl);
+  padding: var(--space-xl);
+}
+
+@media (min-width: 1200px) {
+  .skills-image-left {
+    padding-left: 80px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .skills-image-left {
+    padding-left: 240px;
+  }
+}
+
+.skill-icon-wrapper {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.skill-icon-wrapper:nth-child(1) .skill-svg {
+  transform: scale(0.9);
+}
+
+.skill-svg {
+  width: 180px;
+  height: 180px;
+  color: #ffffff;
+  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.5));
+}
+
+.svg-path {
+  opacity: 1;
+}
+
+.skill-label {
+  font-family: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    sans-serif;
+  font-size: var(--text-sm);
+  font-weight: 300;
+  color: var(--color-text);
+  text-align: center;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* Animations */
+@keyframes glowPulse {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 5px currentColor);
+    stroke-width: 2;
+  }
+  50% {
+    filter: drop-shadow(0 0 20px currentColor)
+      drop-shadow(0 0 30px currentColor);
+    stroke-width: 3;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Light mode */
+body.light-mode .skill-svg {
+  color: #000000;
+  filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.35));
+}
+
+body.light-mode .skill-label {
+  color: #000000;
+}
+
+/* Skills Rating Grid on Right Side */
+.skills-rating-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-2xl);
+  padding: var(--space-2xl);
+  height: 100%;
+  align-content: center;
+}
+
+@media (min-width: 1200px) {
+  .skills-rating-grid {
+    padding-right: 80px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .skills-rating-grid {
+    padding-right: 240px;
+  }
+}
+
+.skill-category {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.category-name {
+  font-family: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    sans-serif;
+  font-size: var(--text-sm);
+  font-weight: 300;
+  color: var(--color-text);
+  text-align: center;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.star-rating {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+.rating-star {
+  width: 30px;
+  height: 30px;
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+
+.rating-star.filled {
+  opacity: 1;
+  animation: fillStar 4s ease-in-out infinite;
+}
+
+.rating-star.filled:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.rating-star.filled:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.rating-star.filled:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.rating-star.filled:nth-child(4) {
+  animation-delay: 0.6s;
+}
+
+.rating-star.filled:nth-child(5) {
+  animation-delay: 0.8s;
+}
+
+.rating-star.empty {
+  opacity: 0.2;
+}
+
+@keyframes fillStar {
+  0%,
+  100% {
+    clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
+  }
+  50% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
+
+/* Light mode */
+body.light-mode .category-name {
+  color: #000000;
+}
+
+body.light-mode .rating-star {
+  color: #000000;
+}
+
+/* Skills Grid */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: var(--space-xl);
+  max-width: 800px;
+  margin: var(--space-2xl) auto 0;
+  padding: 0 var(--space-md);
+}
+
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-lg);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.skill-item:hover {
+  transform: translateY(-8px);
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.skill-icon {
+  width: 80px;
+  height: 80px;
+  color: #ffffff;
+}
+
+.skill-path {
+  stroke-dasharray: 300;
+  stroke-dashoffset: 300;
+  animation: drawPath 2s ease-out forwards, glowPulse 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 8px currentColor);
+}
+
+.skill-item:hover .skill-path {
+  animation: drawPath 2s ease-out forwards, glowPulse 1.5s ease-in-out infinite;
+  filter: drop-shadow(0 0 15px currentColor);
+}
+
+.skill-label {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-text);
+  text-align: center;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Animations */
+@keyframes drawPath {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes glowPulse {
+  0%,
+  100% {
+    opacity: 1;
+    stroke-width: 3;
+  }
+  50% {
+    opacity: 0.7;
+    stroke-width: 4;
+  }
+}
+
+/* Light mode Skills Grid */
+body.light-mode .skill-item {
+  background: rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+body.light-mode .skill-item:hover {
+  background: rgba(0, 0, 0, 0.06);
+  border-color: rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+body.light-mode .skill-icon {
+  color: #000000;
+}
+
+body.light-mode .skill-label {
+  color: #000000;
+}
+
+/* Tablet and up */
+@media (min-width: 768px) {
+  .skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: var(--space-2xl);
+  }
+
+  .skill-icon {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   9. Projects Section
    -------------------------------------------------------------------------- */
 .projects-grid {
   display: grid;
@@ -461,6 +957,24 @@
 /* Light mode arrow color */
 body.light-mode .back-to-top {
   color: #000000;
+}
+
+/* Light mode About section styling */
+body.light-mode .about-title {
+  color: #000000;
+}
+
+body.light-mode .about-star path {
+  fill: #000000;
+}
+
+body.light-mode .about {
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
 }
 
 .back-to-top:hover {
