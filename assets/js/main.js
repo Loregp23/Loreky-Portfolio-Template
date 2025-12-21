@@ -476,3 +476,52 @@ window.cleanupScrollObservers = () => {
   staggerObserver.disconnect();
   console.log("🧹 Observers cleaned up");
 };
+
+// ==========================================================================
+// HERO BACKGROUND CAROUSEL
+// ==========================================================================
+
+/**
+ * HERO CAROUSEL
+ *
+ * Automatically cycles through background images in the hero section.
+ * Transitions are smooth using CSS opacity animations.
+ */
+function initHeroCarousel() {
+  const slides = document.querySelectorAll(".carousel-slide");
+
+  // Exit if no slides found
+  if (slides.length === 0) {
+    console.log("⚠️ No carousel slides found");
+    return;
+  }
+
+  console.log(`🎠 Carousel initialized with ${slides.length} slides`);
+
+  let currentSlide = 0;
+  const slideInterval = 3000; // Change image every 3 seconds
+
+  function nextSlide() {
+    // Remove active class from current slide
+    slides[currentSlide].classList.remove("active");
+
+    // Move to next slide (loop back to 0 if at the end)
+    currentSlide = (currentSlide + 1) % slides.length;
+
+    // Add active class to new slide
+    slides[currentSlide].classList.add("active");
+
+    console.log(`🎠 Switched to slide ${currentSlide + 1}`);
+  }
+
+  // Start the carousel
+  setInterval(nextSlide, slideInterval);
+  console.log(`✅ Carousel running (interval: ${slideInterval}ms)`);
+}
+
+// Initialize carousel when DOM is ready
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initHeroCarousel);
+} else {
+  initHeroCarousel();
+}

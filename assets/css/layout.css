@@ -46,49 +46,41 @@
 }
 
 /* --------------------------------------------------------------------------
-   CSS SCROLL-DRIVEN ANIMATIONS (MODERN PARALLAX)
-
-   🎓 THE FUTURE OF SCROLL ANIMATIONS:
-   CSS scroll-driven animations let you tie animations directly to scroll
-   position — NO JAVASCRIPT REQUIRED! This is more performant than JS-based
-   solutions because the browser handles everything on the compositor thread.
-
-   📐 HOW IT WORKS:
-   1. animation-timeline: scroll(root) — links animation to scroll progress
-   2. animation-range: 0% 100% — animation plays from 0% to 100% scroll
-   3. The @keyframes define what happens at start (0%) and end (100%) of scroll
-
-   ⚠️ BROWSER SUPPORT:
-   This only works in Chrome 115+, Edge 115+. We use @supports to detect it
-   and provide a fallback for other browsers.
-
-   🔗 LEARN MORE: https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timeline
+   Hero Background Carousel
+   
+   Automatically cycles through background images with smooth fade transitions.
+   Includes parallax scroll effect on active slide.
    -------------------------------------------------------------------------- */
-@supports (animation-timeline: scroll()) {
-  .parallax-bg {
-    /* Use image for parallax background */
-    background-image: url("https://ik.imagekit.io/6g9vwtwyq/Ellie%20-%20Lorena%20Garc%C3%ADa%20png.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    will-change: transform;
+.hero-carousel {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
 
-    /* SCROLL-LINKED ANIMATION */
+.carousel-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.carousel-slide.active {
+  opacity: 1;
+}
+
+/* Parallax scroll effect for active slide (modern browsers) */
+@supports (animation-timeline: scroll()) {
+  .carousel-slide.active {
+    will-change: transform;
     animation: parallaxShift linear both;
     animation-timeline: scroll(root);
     animation-range: 0% 100%;
   }
 
   @keyframes parallaxShift {
-    /*
-		 * PARALLAX EFFECT
-		 *
-		 * As user scrolls down:
-		 * - Background moves UP (negative translateY) — creates depth illusion
-		 * - Background scales UP slightly — adds visual interest
-		 *
-		 * -15% is subtle; -30% would be more dramatic but potentially nauseating
-		 */
     from {
       transform: translateY(0) scale(1);
     }
@@ -98,24 +90,16 @@
   }
 }
 
-/*
- * FALLBACK FOR OLDER BROWSERS
- *
- * @supports not (animation-timeline: scroll()) targets browsers that DON'T
- * support scroll-timeline. We give them a simpler parallax effect using
- * background-attachment: fixed (works everywhere but has performance costs).
- */
+/* Fallback parallax for older browsers */
 @supports not (animation-timeline: scroll()) {
-  .parallax-bg {
-    /* Fallback: classic parallax using fixed attachment */
-    background-image: url("https://ik.imagekit.io/6g9vwtwyq/Ellie%20-%20Lorena%20Garc%C3%ADa%20png.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+  .carousel-slide {
     background-attachment: fixed;
   }
 }
 
+/* --------------------------------------------------------------------------
+   Hero Content
+   -------------------------------------------------------------------------- */
 .hero-content {
   position: relative;
   z-index: 1;
