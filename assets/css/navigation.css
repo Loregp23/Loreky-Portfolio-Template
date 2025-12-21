@@ -42,11 +42,8 @@
   z-index: 101;
 }
 
-/* Theme Toggle - Minimalistic Switch */
-.nav-links-toggle {
-  display: none; /* Hidden on mobile */
-}
-
+/* Theme Toggle - Mobile/Desktop visibility */
+.nav-links-toggle,
 .theme-toggle-desktop {
   display: none; /* Hidden on mobile */
 }
@@ -100,7 +97,7 @@ body.light-mode .theme-toggle:hover .theme-toggle-track {
   background: rgba(0, 0, 0, 0.3);
 }
 
-/* Hamburger Menu Button - Mobile First */
+/* Hamburger Menu Button */
 .hamburger {
   display: flex;
   flex-direction: column;
@@ -141,10 +138,9 @@ body.light-mode .theme-toggle:hover .theme-toggle-track {
 /* Navigation Links - Mobile First (Hidden by default) */
 .nav-links {
   position: fixed;
-  top: 75px; /* Starts right below the navigation bar with safe spacing */
+  top: 75px; /* Starts below the navigation bar */
   left: 100%; /* Hidden off-screen to the right */
-  height: auto; /* Height adjusts to content */
-  width: 100%; /* Full width */
+  width: 100%;
   /* Darker glassmorphism effect */
   background: rgba(0, 0, 0, 0.75);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -152,7 +148,7 @@ body.light-mode .theme-toggle:hover .theme-toggle-track {
   -webkit-backdrop-filter: blur(4.9px);
   display: flex;
   flex-direction: column;
-  align-items: stretch; /* Full width items */
+  align-items: stretch;
   list-style: none;
   padding: var(--space-sm) 0 0 0;
   transition: left 0.3s ease;
@@ -166,10 +162,6 @@ body.light-mode .theme-toggle:hover .theme-toggle-track {
   width: 100%;
   text-align: center;
   border-bottom: 2px solid rgba(255, 255, 255, 0.3);
-}
-
-.nav-links li:first-child {
-  border-top: 2px solid rgba(255, 255, 255, 0.3);
 }
 
 .nav-links a {
@@ -225,7 +217,7 @@ body.light-mode .theme-toggle:hover .theme-toggle-track {
   }
 
   .nav-links-toggle {
-    display: flex; /* Show toggle in nav links */
+    display: flex;
     align-items: center;
     justify-content: center;
   }
@@ -249,12 +241,7 @@ body.light-mode .theme-toggle:hover .theme-toggle-track {
 
   .nav-links li {
     width: auto;
-    text-align: left;
     border: none;
-  }
-
-  .nav-links li:first-child {
-    border-top: none;
   }
 
   .nav-links a {
