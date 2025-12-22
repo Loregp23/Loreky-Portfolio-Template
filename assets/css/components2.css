@@ -32,7 +32,7 @@ body.light-mode .projects-star path {
 
 body.light-mode .project-carousel-card {
   background: rgba(255, 255, 255, 0.95);
-  border: 1px solid rgba(0, 0, 0, 0.10);
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 body.light-mode .project-carousel-content h3 {

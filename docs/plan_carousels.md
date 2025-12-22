@@ -1,8 +1,9 @@
-
 # Prompt/Question to the AI
+
 How do I create a Projects section with multiple carousels, each with its own title, subtitle, and independent navigation, styled to match the rest of my portfolio?
 
 # AI’s Complete Plan Response
+
 1. Add three carousels to the Projects section: Illustration, Comic, Editorial Illustration.
 2. Give each carousel a unique title and subtitle above it.
 3. Add left/right navigation arrows and indicator dots for each carousel.
@@ -14,6 +15,7 @@ How do I create a Projects section with multiple carousels, each with its own ti
 9. Test all carousels for theme consistency, responsiveness, and accessibility.
 
 # Brief Notes on What Was Implemented
+
 - HTML: Three carousels (Illustration, Comic, Editorial Illustration) with unique titles/subtitles and independent navigation; all tag elements removed.
 - CSS: Unified backgrounds, borders, and text; light mode support; no shadows on carousel cards.
 - JS: Each carousel operates independently with smooth transitions and touch/swipe support.
