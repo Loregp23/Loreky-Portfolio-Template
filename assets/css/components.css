@@ -40,6 +40,33 @@
   transform: scale(0.98);
 }
 
+/* Ensure hero button remains on top and clickable; scoped override for specificity */
+.hero-content .glow-on-hover {
+  position: relative;
+  z-index: 2;
+  pointer-events: auto;
+  /* keep visual appearance consistent */
+  background: rgba(0, 0, 0, 0.47);
+  backdrop-filter: blur(4.9px);
+  -webkit-backdrop-filter: blur(4.9px);
+}
+
+.hero-content .glow-on-hover:hover {
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.8), 0 0 60px rgba(255, 255, 255, 0.6);
+}
+
+/* Compact hero button: smaller rectangle and white text */
+.hero-content .glow-on-hover {
+  display: inline-block; /* ensure padding affects layout */
+  padding: 12px 28px !important;
+  font-size: 1rem !important; /* 16px */
+  font-weight: 300 !important;
+  border-radius: 10px;
+  min-width: 160px;
+  text-align: center;
+  color: #ffffff !important;
+}
+
 /* --------------------------------------------------------------------------
    7. About Section
    -------------------------------------------------------------------------- */
