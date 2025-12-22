@@ -348,16 +348,6 @@ body.light-mode .project-carousel-card {
 /* --------------------------------------------------------------------------
    10. Contact Section
    -------------------------------------------------------------------------- */
-.contact {
-  background: var(--color-bg-alt);
-  text-align: center;
-}
-
-.contact-content p {
-  font-size: var(--text-lg);
-  color: var(--color-text-muted);
-  margin-bottom: var(--space-lg);
-}
 
 .social-links {
   display: flex;
