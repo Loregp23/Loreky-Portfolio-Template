@@ -525,3 +525,348 @@ if (document.readyState === "loading") {
 } else {
   initHeroCarousel();
 }
+
+// ==========================================================================
+// PROJECTS CAROUSEL
+// ==========================================================================
+
+function initProjectsCarousel() {
+  const track = document.querySelector(".carousel-track");
+  const leftArrow = document.querySelector(".carousel-arrow-left");
+  const rightArrow = document.querySelector(".carousel-arrow-right");
+  const indicators = document.querySelectorAll(".indicator");
+
+  if (!track || !leftArrow || !rightArrow) return;
+
+  let currentIndex = 0;
+  let isAnimating = false;
+  const totalCards = document.querySelectorAll(".project-carousel-card").length;
+
+  function updateCarousel() {
+    if (isAnimating) return;
+    isAnimating = true;
+
+    // Use transform for hardware acceleration
+    track.style.transform = `translate3d(-${currentIndex * 100}%, 0, 0)`;
+
+    // Update indicators efficiently
+    indicators.forEach((indicator, index) => {
+      indicator.classList.toggle("active", index === currentIndex);
+    });
+
+    // Reset animation lock after transition
+    setTimeout(() => {
+      isAnimating = false;
+    }, 400);
+  }
+
+  function nextSlide() {
+    if (isAnimating) return;
+    currentIndex = (currentIndex + 1) % totalCards;
+    updateCarousel();
+  }
+
+  function prevSlide() {
+    if (isAnimating) return;
+    currentIndex = (currentIndex - 1 + totalCards) % totalCards;
+    updateCarousel();
+  }
+
+  function goToSlide(index) {
+    if (isAnimating || index === currentIndex) return;
+    currentIndex = index;
+    updateCarousel();
+  }
+
+  // Event listeners with passive for better scroll performance
+  rightArrow.addEventListener("click", nextSlide);
+  leftArrow.addEventListener("click", prevSlide);
+
+  // Indicator click events
+  indicators.forEach((indicator, index) => {
+    indicator.addEventListener("click", () => goToSlide(index));
+  });
+
+  // Keyboard navigation with debounce
+  let keyTimeout;
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
+      clearTimeout(keyTimeout);
+      keyTimeout = setTimeout(() => {
+        if (e.key === "ArrowLeft") prevSlide();
+        if (e.key === "ArrowRight") nextSlide();
+      }, 50);
+    }
+  });
+
+  // Optimized touch/swipe support
+  let touchStartX = 0;
+  let touchEndX = 0;
+  let isSwiping = false;
+
+  track.addEventListener(
+    "touchstart",
+    (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+      isSwiping = true;
+    },
+    { passive: true }
+  );
+
+  track.addEventListener(
+    "touchmove",
+    (e) => {
+      if (!isSwiping) return;
+      touchEndX = e.changedTouches[0].screenX;
+    },
+    { passive: true }
+  );
+
+  track.addEventListener(
+    "touchend",
+    (e) => {
+      if (!isSwiping) return;
+      handleSwipe();
+      isSwiping = false;
+    },
+    { passive: true }
+  );
+
+  function handleSwipe() {
+    const swipeThreshold = 75;
+    const diff = touchStartX - touchEndX;
+
+    if (Math.abs(diff) > swipeThreshold) {
+      if (diff > 0) {
+        nextSlide();
+      } else {
+        prevSlide();
+      }
+    }
+  }
+}
+
+// Initialize projects carousel when DOM is ready
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initProjectsCarousel);
+} else {
+  initProjectsCarousel();
+}
+
+// ==========================================================================
+// COMIC CAROUSEL
+// ==========================================================================
+
+function initComicCarousel() {
+  const track = document.querySelector(".carousel-track-comic");
+  const leftArrow = document.querySelector(".carousel-arrow-left-comic");
+  const rightArrow = document.querySelector(".carousel-arrow-right-comic");
+  const indicators = document.querySelectorAll(".indicator-comic");
+
+  if (!track || !leftArrow || !rightArrow) return;
+
+  let currentIndex = 0;
+  let isAnimating = false;
+  const totalCards = track.querySelectorAll(".project-carousel-card").length;
+
+  function updateCarousel() {
+    if (isAnimating) return;
+    isAnimating = true;
+
+    track.style.transform = `translate3d(-${currentIndex * 100}%, 0, 0)`;
+
+    indicators.forEach((indicator, index) => {
+      indicator.classList.toggle("active", index === currentIndex);
+    });
+
+    setTimeout(() => {
+      isAnimating = false;
+    }, 400);
+  }
+
+  function nextSlide() {
+    if (isAnimating) return;
+    currentIndex = (currentIndex + 1) % totalCards;
+    updateCarousel();
+  }
+
+  function prevSlide() {
+    if (isAnimating) return;
+    currentIndex = (currentIndex - 1 + totalCards) % totalCards;
+    updateCarousel();
+  }
+
+  function goToSlide(index) {
+    if (isAnimating || index === currentIndex) return;
+    currentIndex = index;
+    updateCarousel();
+  }
+
+  rightArrow.addEventListener("click", nextSlide);
+  leftArrow.addEventListener("click", prevSlide);
+
+  indicators.forEach((indicator, index) => {
+    indicator.addEventListener("click", () => goToSlide(index));
+  });
+
+  let touchStartX = 0;
+  let touchEndX = 0;
+  let isSwiping = false;
+
+  track.addEventListener(
+    "touchstart",
+    (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+      isSwiping = true;
+    },
+    { passive: true }
+  );
+
+  track.addEventListener(
+    "touchmove",
+    (e) => {
+      if (!isSwiping) return;
+      touchEndX = e.changedTouches[0].screenX;
+    },
+    { passive: true }
+  );
+
+  track.addEventListener(
+    "touchend",
+    (e) => {
+      if (!isSwiping) return;
+      handleSwipe();
+      isSwiping = false;
+    },
+    { passive: true }
+  );
+
+  function handleSwipe() {
+    const swipeThreshold = 75;
+    const diff = touchStartX - touchEndX;
+
+    if (Math.abs(diff) > swipeThreshold) {
+      if (diff > 0) {
+        nextSlide();
+      } else {
+        prevSlide();
+      }
+    }
+  }
+}
+
+// Initialize comic carousel when DOM is ready
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initComicCarousel);
+} else {
+  initComicCarousel();
+}
+
+// ==========================================================================
+// EDITORIAL CAROUSEL
+// ==========================================================================
+
+function initEditorialCarousel() {
+  const track = document.querySelector(".carousel-track-editorial");
+  const leftArrow = document.querySelector(".carousel-arrow-left-editorial");
+  const rightArrow = document.querySelector(".carousel-arrow-right-editorial");
+  const indicators = document.querySelectorAll(".indicator-editorial");
+
+  if (!track || !leftArrow || !rightArrow) return;
+
+  let currentIndex = 0;
+  let isAnimating = false;
+  const totalCards = track.querySelectorAll(".project-carousel-card").length;
+
+  function updateCarousel() {
+    if (isAnimating) return;
+    isAnimating = true;
+
+    track.style.transform = `translate3d(-${currentIndex * 100}%, 0, 0)`;
+
+    indicators.forEach((indicator, index) => {
+      indicator.classList.toggle("active", index === currentIndex);
+    });
+
+    setTimeout(() => {
+      isAnimating = false;
+    }, 400);
+  }
+
+  function nextSlide() {
+    if (isAnimating) return;
+    currentIndex = (currentIndex + 1) % totalCards;
+    updateCarousel();
+  }
+
+  function prevSlide() {
+    if (isAnimating) return;
+    currentIndex = (currentIndex - 1 + totalCards) % totalCards;
+    updateCarousel();
+  }
+
+  function goToSlide(index) {
+    if (isAnimating || index === currentIndex) return;
+    currentIndex = index;
+    updateCarousel();
+  }
+
+  rightArrow.addEventListener("click", nextSlide);
+  leftArrow.addEventListener("click", prevSlide);
+
+  indicators.forEach((indicator, index) => {
+    indicator.addEventListener("click", () => goToSlide(index));
+  });
+
+  let touchStartX = 0;
+  let touchEndX = 0;
+  let isSwiping = false;
+
+  track.addEventListener(
+    "touchstart",
+    (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+      isSwiping = true;
+    },
+    { passive: true }
+  );
+
+  track.addEventListener(
+    "touchmove",
+    (e) => {
+      if (!isSwiping) return;
+      touchEndX = e.changedTouches[0].screenX;
+    },
+    { passive: true }
+  );
+
+  track.addEventListener(
+    "touchend",
+    (e) => {
+      if (!isSwiping) return;
+      handleSwipe();
+      isSwiping = false;
+    },
+    { passive: true }
+  );
+
+  function handleSwipe() {
+    const swipeThreshold = 75;
+    const diff = touchStartX - touchEndX;
+
+    if (Math.abs(diff) > swipeThreshold) {
+      if (diff > 0) {
+        nextSlide();
+      } else {
+        prevSlide();
+      }
+    }
+  }
+}
+
+// Initialize editorial carousel when DOM is ready
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initEditorialCarousel);
+} else {
+  initEditorialCarousel();
+}

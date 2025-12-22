@@ -471,72 +471,374 @@
 
       <!-- Projects Section -->
       <section id="projects" class="section projects">
-        <div class="container">
-          <h2 class="section-title animate-on-scroll">Featured Projects</h2>
-          <div class="projects-grid" data-reveal-stagger>
-            <article class="project-card">
-              <div class="project-image">
-                <img
-                  src="https://picsum.photos/400/300?random=1"
-                  alt="Children's Book Illustration"
-                  loading="lazy"
-                />
-              </div>
-              <div class="project-content">
-                <h3>Children's Book Illustration</h3>
-                <p>
-                  A whimsical series of illustrations for a fantasy adventure
-                  book, featuring vibrant colors and expressive characters that
-                  captivate young readers.
-                </p>
-                <div class="project-tags">
-                  <span>Digital Art</span><span>Character Design</span
-                  ><span>Publishing</span>
+        <div class="projects-wrapper">
+          <div class="projects-header">
+            <svg
+              class="projects-star"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 185.47 245.47"
+              role="img"
+              focusable="false"
+            >
+              <path
+                d="M92.74,245.47s-8.55-83.99-28.03-103.48S0,115.73,0,115.73c0,0,45.34-3.16,64.82-22.65C83.52,74.38,92.74,0,92.74,0c0,0,13.42,74.95,31.24,92.77,20.36,20.36,61.49,22.96,61.49,22.96,0,0-43.95,8.54-61.68,26.26-20.46,20.46-31.06,103.48-31.06,103.48Z"
+                fill="#fff"
+              />
+            </svg>
+            <h2 class="projects-title animate-on-scroll">Projects</h2>
+          </div>
+
+          <!-- Illustration Subtitle -->
+          <h3 class="projects-subtitle">Illustration</h3>
+
+          <!-- Projects Carousel -->
+          <div class="projects-carousel">
+            <button
+              class="carousel-arrow carousel-arrow-left"
+              aria-label="Previous project"
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+            </button>
+
+            <div class="carousel-container">
+              <div class="carousel-track">
+                <!-- Project Card 1 -->
+                <div class="project-carousel-card">
+                  <div class="project-carousel-image">
+                    <img
+                      src="https://picsum.photos/800/600?random=1"
+                      alt="Project 1"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div class="project-carousel-content">
+                    <h3>Children's Book Illustration</h3>
+                    <p>
+                      A whimsical series of illustrations for a fantasy
+                      adventure book, featuring vibrant colors and expressive
+                      characters that captivate young readers.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Project Card 2 -->
+                <div class="project-carousel-card">
+                  <div class="project-carousel-image">
+                    <img
+                      src="https://picsum.photos/800/600?random=2"
+                      alt="Project 2"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div class="project-carousel-content">
+                    <h3>Editorial Series</h3>
+                    <p>
+                      Bold, conceptual illustrations for a major publication
+                      exploring themes of technology, society, and human
+                      connection in the digital age.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Project Card 3 -->
+                <div class="project-carousel-card">
+                  <div class="project-carousel-image">
+                    <img
+                      src="https://picsum.photos/800/600?random=3"
+                      alt="Project 3"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div class="project-carousel-content">
+                    <h3>Brand Character Design</h3>
+                    <p>
+                      Complete character development for a tech startup's
+                      mascot, including expression sheets, style guides, and
+                      various poses for marketing materials.
+                    </p>
+                  </div>
                 </div>
               </div>
-            </article>
-            <article class="project-card">
-              <div class="project-image">
-                <img
-                  src="https://picsum.photos/400/300?random=2"
-                  alt="Editorial Illustration"
-                  loading="lazy"
-                />
-              </div>
-              <div class="project-content">
-                <h3>Editorial Series</h3>
-                <p>
-                  Bold, conceptual illustrations for a major publication
-                  exploring themes of technology, society, and human connection
-                  in the digital age.
-                </p>
-                <div class="project-tags">
-                  <span>Concept Art</span><span>Editorial</span
-                  ><span>Print</span>
+            </div>
+
+            <button
+              class="carousel-arrow carousel-arrow-right"
+              aria-label="Next project"
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Carousel Indicators -->
+          <div class="carousel-indicators">
+            <button
+              class="indicator active"
+              aria-label="Go to project 1"
+            ></button>
+            <button class="indicator" aria-label="Go to project 2"></button>
+            <button class="indicator" aria-label="Go to project 3"></button>
+          </div>
+
+          <!-- Comic Subtitle -->
+          <h3 class="projects-subtitle projects-subtitle-comic">Comic</h3>
+
+          <!-- Cómic Carousel -->
+          <div class="projects-carousel projects-carousel-comic">
+            <button
+              class="carousel-arrow carousel-arrow-left-comic"
+              aria-label="Previous comic project"
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+            </button>
+
+            <div class="carousel-container">
+              <div class="carousel-track carousel-track-comic">
+                <!-- Comic Card 1 -->
+                <div class="project-carousel-card">
+                  <div class="project-carousel-image">
+                    <img
+                      src="https://picsum.photos/800/600?random=4"
+                      alt="Comic Project 1"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div class="project-carousel-content">
+                    <h3>Fantasy Comic Series</h3>
+                    <p>
+                      An epic fantasy comic series featuring dynamic panel
+                      layouts, expressive characters, and vibrant storytelling
+                      across multiple chapters.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Comic Card 2 -->
+                <div class="project-carousel-card">
+                  <div class="project-carousel-image">
+                    <img
+                      src="https://picsum.photos/800/600?random=5"
+                      alt="Comic Project 2"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div class="project-carousel-content">
+                    <h3>Urban Adventure Comic</h3>
+                    <p>
+                      A gritty urban story told through detailed panels,
+                      featuring strong character development and atmospheric
+                      city scenes.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Comic Card 3 -->
+                <div class="project-carousel-card">
+                  <div class="project-carousel-image">
+                    <img
+                      src="https://picsum.photos/800/600?random=6"
+                      alt="Comic Project 3"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div class="project-carousel-content">
+                    <h3>Sci-Fi Comic Collection</h3>
+                    <p>
+                      Futuristic tales exploring technology and humanity through
+                      innovative panel designs and vibrant, otherworldly
+                      settings.
+                    </p>
+                  </div>
                 </div>
               </div>
-            </article>
-            <article class="project-card">
-              <div class="project-image">
-                <img
-                  src="https://picsum.photos/400/300?random=3"
-                  alt="Brand Character Design"
-                  loading="lazy"
-                />
-              </div>
-              <div class="project-content">
-                <h3>Brand Character Design</h3>
-                <p>
-                  Complete character development for a tech startup's mascot,
-                  including expression sheets, style guides, and various poses
-                  for marketing materials.
-                </p>
-                <div class="project-tags">
-                  <span>Branding</span><span>Character</span
-                  ><span>Commercial</span>
+            </div>
+
+            <button
+              class="carousel-arrow carousel-arrow-right-comic"
+              aria-label="Next comic project"
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Comic Carousel Indicators -->
+          <div class="carousel-indicators carousel-indicators-comic">
+            <button
+              class="indicator indicator-comic active"
+              aria-label="Go to comic project 1"
+            ></button>
+            <button
+              class="indicator indicator-comic"
+              aria-label="Go to comic project 2"
+            ></button>
+            <button
+              class="indicator indicator-comic"
+              aria-label="Go to comic project 3"
+            ></button>
+          </div>
+
+          <!-- Editorial Illustration Subtitle -->
+          <h3 class="projects-subtitle projects-subtitle-editorial">
+            Editorial Illustration
+          </h3>
+
+          <!-- Editorial Carousel -->
+          <div class="projects-carousel projects-carousel-editorial">
+            <button
+              class="carousel-arrow carousel-arrow-left-editorial"
+              aria-label="Previous editorial project"
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+            </button>
+
+            <div class="carousel-container">
+              <div class="carousel-track carousel-track-editorial">
+                <!-- Editorial Card 1 -->
+                <div class="project-carousel-card">
+                  <div class="project-carousel-image">
+                    <img
+                      src="https://picsum.photos/800/600?random=7"
+                      alt="Editorial Project 1"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div class="project-carousel-content">
+                    <h3>Magazine Cover Series</h3>
+                    <p>
+                      Bold and striking editorial illustrations for major
+                      magazine covers, capturing contemporary themes with
+                      sophisticated visual storytelling.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Editorial Card 2 -->
+                <div class="project-carousel-card">
+                  <div class="project-carousel-image">
+                    <img
+                      src="https://picsum.photos/800/600?random=8"
+                      alt="Editorial Project 2"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div class="project-carousel-content">
+                    <h3>News Article Illustrations</h3>
+                    <p>
+                      Conceptual illustrations accompanying in-depth journalism
+                      pieces, translating complex topics into engaging visual
+                      narratives.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Editorial Card 3 -->
+                <div class="project-carousel-card">
+                  <div class="project-carousel-image">
+                    <img
+                      src="https://picsum.photos/800/600?random=9"
+                      alt="Editorial Project 3"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div class="project-carousel-content">
+                    <h3>Opinion Column Artwork</h3>
+                    <p>
+                      Thought-provoking illustrations for opinion pieces,
+                      combining artistic expression with powerful commentary on
+                      current events.
+                    </p>
+                  </div>
                 </div>
               </div>
-            </article>
+            </div>
+
+            <button
+              class="carousel-arrow carousel-arrow-right-editorial"
+              aria-label="Next editorial project"
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Editorial Carousel Indicators -->
+          <div class="carousel-indicators carousel-indicators-editorial">
+            <button
+              class="indicator indicator-editorial active"
+              aria-label="Go to editorial project 1"
+            ></button>
+            <button
+              class="indicator indicator-editorial"
+              aria-label="Go to editorial project 2"
+            ></button>
+            <button
+              class="indicator indicator-editorial"
+              aria-label="Go to editorial project 3"
+            ></button>
           </div>
         </div>
       </section>
