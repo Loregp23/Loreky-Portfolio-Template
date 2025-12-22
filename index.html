@@ -26,6 +26,89 @@
     <script src="./assets/js/main.js" defer></script>
   </head>
   <body>
+    <!-- Modal for full image view -->
+    <div
+      id="image-modal"
+      style="
+        display: none;
+        position: fixed;
+        z-index: 9999;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.85);
+        align-items: center;
+        justify-content: center;
+      "
+    >
+      <span
+        id="modal-close"
+        style="
+          position: absolute;
+          top: 32px;
+          right: 48px;
+          font-size: 3rem;
+          color: #fff;
+          cursor: pointer;
+          font-family: sans-serif;
+          z-index: 10001;
+        "
+        >&times;</span
+      >
+      <img
+        id="modal-img"
+        src=""
+        alt="Full view"
+        style="
+          max-width: 90vw;
+          max-height: 90vh;
+          border-radius: 18px;
+          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+          background: #222;
+        "
+      />
+    </div>
+    <script>
+      // Modal logic for project carousel images
+      document.addEventListener("DOMContentLoaded", function () {
+        const modal = document.getElementById("image-modal");
+        const modalImg = document.getElementById("modal-img");
+        const modalClose = document.getElementById("modal-close");
+        // Only target the first projects carousel
+        const firstCarousel = document.querySelector(
+          ".projects-carousel .carousel-track"
+        );
+        if (firstCarousel) {
+          firstCarousel
+            .querySelectorAll(".project-carousel-image img")
+            .forEach((img) => {
+              img.style.cursor = "zoom-in";
+              img.addEventListener("click", function (e) {
+                modal.style.display = "flex";
+                modalImg.src = this.src;
+                modalImg.alt = this.alt;
+              });
+            });
+        }
+        modalClose.addEventListener("click", function () {
+          modal.style.display = "none";
+          modalImg.src = "";
+        });
+        modal.addEventListener("click", function (e) {
+          if (e.target === modal) {
+            modal.style.display = "none";
+            modalImg.src = "";
+          }
+        });
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape") {
+            modal.style.display = "none";
+            modalImg.src = "";
+          }
+        });
+      });
+    </script>
     <!-- Skip link for accessibility -->
     <a href="#main" class="skip-link">Skip to main content</a>
 
@@ -517,56 +600,126 @@
                 <div class="project-carousel-card">
                   <div class="project-carousel-image">
                     <img
-                      src="https://picsum.photos/800/600?random=1"
+                      src="https://ik.imagekit.io/6g9vwtwyq/Web%20portfolio-20251210T141830Z-3-001/Web%20portfolio/PORTADA.jpg?updatedAt=1766331515071"
                       alt="Project 1"
                       loading="lazy"
                     />
                   </div>
                   <div class="project-carousel-content">
-                    <h3>Children's Book Illustration</h3>
-                    <p>
-                      A whimsical series of illustrations for a fantasy
-                      adventure book, featuring vibrant colors and expressive
-                      characters that captivate young readers.
-                    </p>
+                    <h3>Project 1</h3>
+                    <p>Project description 1.</p>
                   </div>
                 </div>
-
                 <!-- Project Card 2 -->
                 <div class="project-carousel-card">
                   <div class="project-carousel-image">
                     <img
-                      src="https://picsum.photos/800/600?random=2"
+                      src="https://ik.imagekit.io/6g9vwtwyq/Web%20portfolio-20251210T141830Z-3-001/Web%20portfolio/Copia%20de%20Libertad.jpg?updatedAt=1765376459288"
                       alt="Project 2"
                       loading="lazy"
                     />
                   </div>
                   <div class="project-carousel-content">
-                    <h3>Editorial Series</h3>
-                    <p>
-                      Bold, conceptual illustrations for a major publication
-                      exploring themes of technology, society, and human
-                      connection in the digital age.
-                    </p>
+                    <h3>Project 2</h3>
+                    <p>Project description 2.</p>
                   </div>
                 </div>
-
                 <!-- Project Card 3 -->
                 <div class="project-carousel-card">
                   <div class="project-carousel-image">
                     <img
-                      src="https://picsum.photos/800/600?random=3"
+                      src="https://ik.imagekit.io/6g9vwtwyq/Web%20portfolio-20251210T141830Z-3-001/Web%20portfolio/Copia%20de%20gachiakuta%20fanart.png?updatedAt=1765376459560"
                       alt="Project 3"
                       loading="lazy"
                     />
                   </div>
                   <div class="project-carousel-content">
-                    <h3>Brand Character Design</h3>
-                    <p>
-                      Complete character development for a tech startup's
-                      mascot, including expression sheets, style guides, and
-                      various poses for marketing materials.
-                    </p>
+                    <h3>Project 3</h3>
+                    <p>Project description 3.</p>
+                  </div>
+                </div>
+                <!-- Project Card 4 -->
+                <div class="project-carousel-card">
+                  <div class="project-carousel-image">
+                    <img
+                      src="https://ik.imagekit.io/6g9vwtwyq/Web%20portfolio-20251210T141830Z-3-001/Web%20portfolio/Copia%20de%20contra%20y%20portada.jpg?updatedAt=1765376457883"
+                      alt="Project 4"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div class="project-carousel-content">
+                    <h3>Project 4</h3>
+                    <p>Project description 4.</p>
+                  </div>
+                </div>
+                <!-- Project Card 5 -->
+                <div class="project-carousel-card">
+                  <div class="project-carousel-image">
+                    <img
+                      src="https://ik.imagekit.io/6g9vwtwyq/Web%20portfolio-20251210T141830Z-3-001/Web%20portfolio/1LIBRE%20COPIA.jpg?updatedAt=1766331978547"
+                      alt="Project 5"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div class="project-carousel-content">
+                    <h3>Project 5</h3>
+                    <p>Project description 5.</p>
+                  </div>
+                </div>
+                <!-- Project Card 6 -->
+                <div class="project-carousel-card">
+                  <div class="project-carousel-image">
+                    <img
+                      src="https://ik.imagekit.io/6g9vwtwyq/Web%20portfolio-20251210T141830Z-3-001/Web%20portfolio/Copia%20de%20Loreky_Print.jpg?updatedAt=1765376454698"
+                      alt="Project 6"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div class="project-carousel-content">
+                    <h3>Project 6</h3>
+                    <p>Project description 6.</p>
+                  </div>
+                </div>
+                <!-- Project Card 7 -->
+                <div class="project-carousel-card">
+                  <div class="project-carousel-image">
+                    <img
+                      src="https://ik.imagekit.io/6g9vwtwyq/Web%20portfolio-20251210T141830Z-3-001/Web%20portfolio/Copia%20de%20a-1.png?updatedAt=1765376456651"
+                      alt="Project 7"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div class="project-carousel-content">
+                    <h3>Project 7</h3>
+                    <p>Project description 7.</p>
+                  </div>
+                </div>
+                <!-- Project Card 8 -->
+                <div class="project-carousel-card">
+                  <div class="project-carousel-image">
+                    <img
+                      src="https://ik.imagekit.io/6g9vwtwyq/Web%20portfolio-20251210T141830Z-3-001/Web%20portfolio/feria%20del%20libro.jpg?updatedAt=1766331981925"
+                      alt="Project 8"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div class="project-carousel-content">
+                    <h3>Project 8</h3>
+                    <p>Project description 8.</p>
+                  </div>
+                </div>
+                <!-- Project Card 9 -->
+                <div class="project-carousel-card">
+                  <div class="project-carousel-image">
+                    <img
+                      src="https://ik.imagekit.io/6g9vwtwyq/Web%20portfolio-20251210T141830Z-3-001/Web%20portfolio/Copia%20de%20ba%C3%B1o%20hannigram%20-%20copia.jpg?updatedAt=1765376456952"
+                      alt="Project 9"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div class="project-carousel-content">
+                    <h3>Project 9</h3>
+                    <p>Project description 9.</p>
                   </div>
                 </div>
               </div>
@@ -599,6 +752,12 @@
             ></button>
             <button class="indicator" aria-label="Go to project 2"></button>
             <button class="indicator" aria-label="Go to project 3"></button>
+            <button class="indicator" aria-label="Go to project 4"></button>
+            <button class="indicator" aria-label="Go to project 5"></button>
+            <button class="indicator" aria-label="Go to project 6"></button>
+            <button class="indicator" aria-label="Go to project 7"></button>
+            <button class="indicator" aria-label="Go to project 8"></button>
+            <button class="indicator" aria-label="Go to project 9"></button>
           </div>
 
           <!-- Comic Subtitle -->
@@ -630,8 +789,8 @@
                 <div class="project-carousel-card">
                   <div class="project-carousel-image">
                     <img
-                      src="https://picsum.photos/800/600?random=4"
-                      alt="Comic Project 1"
+                      src="https://ik.imagekit.io/6g9vwtwyq/Web%20portfolio-20251210T141830Z-3-001/Web%20portfolio/Copia%20de%20c%C3%B3mic%20ilust3.jpg?updatedAt=1765376457861"
+                      alt="Comic Project 1 - ilust"
                       loading="lazy"
                     />
                   </div>
@@ -649,7 +808,7 @@
                 <div class="project-carousel-card">
                   <div class="project-carousel-image">
                     <img
-                      src="https://picsum.photos/800/600?random=5"
+                      src="https://ik.imagekit.io/6g9vwtwyq/Web%20portfolio-20251210T141830Z-3-001/Web%20portfolio/Copia%20de%20comic.jpg?updatedAt=1765376457562"
                       alt="Comic Project 2"
                       loading="lazy"
                     />
@@ -668,7 +827,7 @@
                 <div class="project-carousel-card">
                   <div class="project-carousel-image">
                     <img
-                      src="https://picsum.photos/800/600?random=6"
+                      src="https://ik.imagekit.io/6g9vwtwyq/Web%20portfolio-20251210T141830Z-3-001/Web%20portfolio/Copia%20de%20FINAL%202.jpg?updatedAt=1765376456619"
                       alt="Comic Project 3"
                       loading="lazy"
                     />
@@ -679,6 +838,23 @@
                       Futuristic tales exploring technology and humanity through
                       innovative panel designs and vibrant, otherworldly
                       settings.
+                    </p>
+                  </div>
+                </div>
+                <!-- Comic Card 4 -->
+                <div class="project-carousel-card">
+                  <div class="project-carousel-image">
+                    <img
+                      src="https://ik.imagekit.io/6g9vwtwyq/Web%20portfolio-20251210T141830Z-3-001/Web%20portfolio/Ilustraci%C3%B3n16.jpg?updatedAt=1766331981939"
+                      alt="Comic Project 4 - ilustracion"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div class="project-carousel-content">
+                    <h3>Mini Comic One-Shot</h3>
+                    <p>
+                      A short standalone comic exploring character-driven
+                      moments and expressive visual storytelling.
                     </p>
                   </div>
                 </div>
@@ -718,6 +894,10 @@
               class="indicator indicator-comic"
               aria-label="Go to comic project 3"
             ></button>
+            <button
+              class="indicator indicator-comic"
+              aria-label="Go to comic project 4"
+            ></button>
           </div>
 
           <!-- Editorial Illustration Subtitle -->
@@ -751,7 +931,7 @@
                 <div class="project-carousel-card">
                   <div class="project-carousel-image">
                     <img
-                      src="https://picsum.photos/800/600?random=7"
+                      src="https://ik.imagekit.io/6g9vwtwyq/Web%20portfolio-20251210T141830Z-3-001/Web%20portfolio/Copia%20de%201.png?updatedAt=1765376457412"
                       alt="Editorial Project 1"
                       loading="lazy"
                     />
@@ -770,7 +950,7 @@
                 <div class="project-carousel-card">
                   <div class="project-carousel-image">
                     <img
-                      src="https://picsum.photos/800/600?random=8"
+                      src="https://ik.imagekit.io/6g9vwtwyq/Web%20portfolio-20251210T141830Z-3-001/Web%20portfolio/mock%20up%2010.png?updatedAt=1766331978823"
                       alt="Editorial Project 2"
                       loading="lazy"
                     />
@@ -789,7 +969,7 @@
                 <div class="project-carousel-card">
                   <div class="project-carousel-image">
                     <img
-                      src="https://picsum.photos/800/600?random=9"
+                      src="https://ik.imagekit.io/6g9vwtwyq/Web%20portfolio-20251210T141830Z-3-001/Web%20portfolio/mock%20up%2012.png?updatedAt=1766331978844"
                       alt="Editorial Project 3"
                       loading="lazy"
                     />
@@ -800,6 +980,23 @@
                       Thought-provoking illustrations for opinion pieces,
                       combining artistic expression with powerful commentary on
                       current events.
+                    </p>
+                  </div>
+                </div>
+                <!-- Editorial Card 4 -->
+                <div class="project-carousel-card">
+                  <div class="project-carousel-image">
+                    <img
+                      src="https://ik.imagekit.io/6g9vwtwyq/Web%20portfolio-20251210T141830Z-3-001/Web%20portfolio/mock%20up%2011.png?updatedAt=1766331979120"
+                      alt="Editorial Project 4"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div class="project-carousel-content">
+                    <h3>Feature Illustration</h3>
+                    <p>
+                      Standalone feature illustrations exploring visual themes
+                      and editorial concepts with refined composition and color.
                     </p>
                   </div>
                 </div>
@@ -838,6 +1035,10 @@
             <button
               class="indicator indicator-editorial"
               aria-label="Go to editorial project 3"
+            ></button>
+            <button
+              class="indicator indicator-editorial"
+              aria-label="Go to editorial project 4"
             ></button>
           </div>
         </div>

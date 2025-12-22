@@ -531,16 +531,27 @@ if (document.readyState === "loading") {
 // ==========================================================================
 
 function initProjectsCarousel() {
-  const track = document.querySelector(".carousel-track");
-  const leftArrow = document.querySelector(".carousel-arrow-left");
-  const rightArrow = document.querySelector(".carousel-arrow-right");
-  const indicators = document.querySelectorAll(".indicator");
+  // Scope to the first Projects carousel inside the #projects section
+  const projectsSection = document.querySelector("#projects");
+  if (!projectsSection) return;
+
+  const projectsCarousel = projectsSection.querySelector(
+    ".projects-carousel:not(.projects-carousel-comic):not(.projects-carousel-editorial)"
+  );
+  if (!projectsCarousel) return;
+
+  const track = projectsCarousel.querySelector(".carousel-track");
+  const leftArrow = projectsCarousel.querySelector(".carousel-arrow-left");
+  const rightArrow = projectsCarousel.querySelector(".carousel-arrow-right");
+  const indicators = projectsSection.querySelectorAll(
+    ".carousel-indicators .indicator"
+  );
 
   if (!track || !leftArrow || !rightArrow) return;
 
   let currentIndex = 0;
   let isAnimating = false;
-  const totalCards = document.querySelectorAll(".project-carousel-card").length;
+  const totalCards = track.querySelectorAll(".project-carousel-card").length;
 
   function updateCarousel() {
     if (isAnimating) return;

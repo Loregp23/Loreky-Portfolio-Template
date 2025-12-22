@@ -142,7 +142,6 @@ body.light-mode .indicator:hover {
   flex: 1;
   overflow: hidden;
   border-radius: 20px;
-  width: 100%;
 }
 
 .carousel-track {
@@ -157,6 +156,7 @@ body.light-mode .indicator:hover {
   min-width: 100%;
   display: flex;
   flex-direction: column;
+  min-height: 700px;
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -173,14 +173,63 @@ body.light-mode .project-carousel-card {
 
 .project-carousel-image {
   width: 100%;
-  height: 550px;
+  height: 700px;
   overflow: hidden;
+  position: relative;
 }
 
 .project-carousel-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Non-intrusive call-to-action icon that appears on hover (doesn't modify image) */
+@media (hover: hover) {
+  .project-carousel-image::after {
+    content: "";
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.55)
+      url("data:image/svg+xml;utf8,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%20fill='none'%20stroke='white'%20stroke-width='2'%20stroke-linecap='round'%20stroke-linejoin='round'%3E%3Ccircle%20cx='11'%20cy='11'%20r='7'/%3E%3Cline%20x1='21'%20y1='21'%20x2='16.65'%20y2='16.65'/%3E%3C/svg%3E")
+      center/60% no-repeat;
+    opacity: 0;
+    transform: translateY(6px) scale(0.98);
+    transition: opacity 180ms ease, transform 180ms ease;
+    pointer-events: none;
+  }
+
+  .project-carousel-image:hover::after {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Subtle hover animation for desktop/hover-capable devices */
+@media (hover: hover) and (min-width: 768px) {
+  /* Keep cards' original layout (clipped) but still allow image transform to run */
+  .carousel-container,
+  .projects-carousel,
+  .project-carousel-card {
+    overflow: hidden;
+  }
+
+  .project-carousel-card {
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+  }
+
+  .project-carousel-image:hover img {
+    transform: translateY(-6px) scale(1.06);
+    filter: brightness(1.06) contrast(1.03);
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.28);
+    will-change: transform, filter;
+  }
 }
 
 .project-carousel-content {
@@ -290,7 +339,7 @@ body.light-mode .project-carousel-card {
 
   .project-carousel-image {
     width: 50%;
-    height: 750px;
+    height: 700px;
   }
 
   .project-carousel-content {
@@ -313,7 +362,7 @@ body.light-mode .project-carousel-card {
   }
 
   .project-carousel-image {
-    height: 850px;
+    height: 700px;
   }
 
   .project-carousel-content h3 {
