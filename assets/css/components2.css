@@ -1,3 +1,10 @@
+body.light-mode .contact-title {
+  color: #000 !important;
+  text-shadow: none !important;
+}
+body.light-mode .contact-star path {
+  fill: #000 !important;
+}
 /* --------------------------------------------------------------------------
    9. Projects Section
    -------------------------------------------------------------------------- */
@@ -14,10 +21,18 @@
 }
 /* Light mode adjustments for Projects and Carousels */
 body.light-mode .projects {
-  background: rgba(255, 255, 255, 0.85);
-  box-shadow: 0 4px 30px rgba(31, 38, 135, 0.08);
-  border-top: 1px solid rgba(0, 0, 0, 0.12);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  background: #fff;
+  box-shadow: none;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+body.light-mode .contact {
+  background: #fff;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
 }
 
 body.light-mode .projects-title,
@@ -410,6 +425,9 @@ body.light-mode .project-carousel-card {
   transition: color 0.3s;
 }
 
+body.light-mode .social-links a:hover {
+  color: #111 !important;
+}
 .social-links a:hover {
   color: #ffffff;
 }
