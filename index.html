@@ -3,7 +3,31 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Loreky — Portfolio</title>
+    <meta
+      name="description"
+      content="The personal portfolio of Loreky, illustrator and creative coder. Explore star-powered artwork, creative projects, and playful CSS animations."
+    />
+    <meta
+      name="keywords"
+      content="Loreky, portfolio, illustrator, art, creative coding, CSS animation, star, digital art, web design"
+    />
+    <meta name="theme-color" content="#0a0a0f" />
+
+    <!-- Open Graph / Facebook / LinkedIn -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Loreky — Portfolio" />
+    <meta
+      property="og:description"
+      content="The personal portfolio of Loreky, illustrator and creative coder. Explore star-powered artwork, creative projects, and playful CSS animations."
+    />
+    <meta property="og:url" content="https://www.instagram.com/loreky_/" />
+    <meta
+      property="og:image"
+      content="https://ik.imagekit.io/6g9vwtwyq/Web%20portfolio-20251210T141830Z-3-001/Web%20portfolio/Copia%20de%20Badge%20WHM%20Deku.png?updatedAt=1765376456718"
+    />
+    <!-- Instagram link for Open Graph only -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -22,6 +46,30 @@
       href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Favicons: PNG (multiple sizes) -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="assets/favicon-16.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="assets/favicon-32.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="assets/favicon-180.png"
+    />
+    <link rel="icon" href="assets/favicon.png" type="image/png" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="assets/favicon/favicon.png" type="image/png" />
+
     <link rel="stylesheet" href="./assets/css/index.css" />
     <script src="./assets/js/main.js" defer></script>
   </head>
@@ -75,12 +123,12 @@
         const modal = document.getElementById("image-modal");
         const modalImg = document.getElementById("modal-img");
         const modalClose = document.getElementById("modal-close");
-        // Only target the first projects carousel
-        const firstCarousel = document.querySelector(
+        // Attach modal click handlers to all project carousels
+        const carouselTracks = document.querySelectorAll(
           ".projects-carousel .carousel-track"
         );
-        if (firstCarousel) {
-          firstCarousel
+        carouselTracks.forEach((track) => {
+          track
             .querySelectorAll(".project-carousel-image img")
             .forEach((img) => {
               img.style.cursor = "zoom-in";
@@ -90,7 +138,7 @@
                 modalImg.alt = this.alt;
               });
             });
-        }
+        });
         modalClose.addEventListener("click", function () {
           modal.style.display = "none";
           modalImg.src = "";

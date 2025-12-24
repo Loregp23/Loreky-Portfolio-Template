@@ -1,0 +1,416 @@
+/* Clean 404 styles (fresh from scratch) */
+
+:root {
+  --bg: #000000;
+  --fg: #ffffff;
+  --muted: #bfc5d0;
+  --accent: #ffd166;
+}
+
+.error-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  position: relative;
+}
+
+.error-inner {
+  width: 100%;
+  max-width: 900px;
+  text-align: center;
+  padding: 4rem 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* small positioned sparks for random glow effect */
+.sparkles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.sparkles .spark {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: transparent;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 185.47 245.47'><path d='M92.74,245.47s-8.55-83.99-28.03-103.48S0,115.73,0,115.73c0,0,45.34-3.16,64.82-22.65C83.52,74.38,92.74,0,92.74,0c0,0,13.42,74.95,31.24,92.77,20.36,20.36,61.49,22.96,61.49,22.96,0,0-43.95,8.54-61.68,26.26-20.46,20.46-31.06,103.48-31.06,103.48Z' fill='%23ffffff'/></svg>");
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.06;
+  transform: scale(1);
+  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.6));
+  animation: sparkGlow 3.6s ease-in-out infinite;
+}
+
+@keyframes sparkGlow {
+  0%,
+  100% {
+    opacity: 0.04;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.92;
+    transform: scale(1.9);
+  }
+}
+
+/* individual random-ish positions and staggered delays */
+.sparkles .spark:nth-child(1) {
+  left: 6%;
+  top: 12%;
+  animation-delay: 0.2s;
+  animation-duration: 4.2s;
+}
+.sparkles .spark:nth-child(2) {
+  left: 18%;
+  top: 28%;
+  animation-delay: 1.1s;
+  animation-duration: 3.6s;
+}
+.sparkles .spark:nth-child(3) {
+  left: 30%;
+  top: 6%;
+  animation-delay: 0.6s;
+  animation-duration: 5.2s;
+}
+.sparkles .spark:nth-child(4) {
+  left: 46%;
+  top: 40%;
+  animation-delay: 0.9s;
+  animation-duration: 3.9s;
+}
+.sparkles .spark:nth-child(5) {
+  left: 60%;
+  top: 18%;
+  animation-delay: 0.3s;
+  animation-duration: 4.6s;
+}
+.sparkles .spark:nth-child(6) {
+  left: 72%;
+  top: 8%;
+  animation-delay: 1.5s;
+  animation-duration: 3.3s;
+}
+.sparkles .spark:nth-child(7) {
+  left: 82%;
+  top: 36%;
+  animation-delay: 0.8s;
+  animation-duration: 4.8s;
+}
+.sparkles .spark:nth-child(8) {
+  left: 12%;
+  top: 64%;
+  animation-delay: 2.1s;
+  animation-duration: 4.1s;
+}
+.sparkles .spark:nth-child(9) {
+  left: 26%;
+  top: 72%;
+  animation-delay: 1.8s;
+  animation-duration: 3.7s;
+}
+.sparkles .spark:nth-child(10) {
+  left: 44%;
+  top: 82%;
+  animation-delay: 0.4s;
+  animation-duration: 5s;
+}
+.sparkles .spark:nth-child(11) {
+  left: 68%;
+  top: 68%;
+  animation-delay: 1.2s;
+  animation-duration: 3.8s;
+}
+.sparkles .spark:nth-child(12) {
+  left: 88%;
+  top: 74%;
+  animation-delay: 0.7s;
+  animation-duration: 4.4s;
+}
+.sparkles .spark:nth-child(13) {
+  left: 4%;
+  top: 84%;
+  animation-delay: 1.9s;
+  animation-duration: 4.6s;
+}
+.sparkles .spark:nth-child(14) {
+  left: 14%;
+  top: 44%;
+  animation-delay: 2.4s;
+  animation-duration: 3.9s;
+}
+.sparkles .spark:nth-child(15) {
+  left: 22%;
+  top: 18%;
+  animation-delay: 0.5s;
+  animation-duration: 4.2s;
+}
+.sparkles .spark:nth-child(16) {
+  left: 36%;
+  top: 56%;
+  animation-delay: 1s;
+  animation-duration: 3.3s;
+}
+.sparkles .spark:nth-child(17) {
+  left: 52%;
+  top: 62%;
+  animation-delay: 0.2s;
+  animation-duration: 4.8s;
+}
+.sparkles .spark:nth-child(18) {
+  left: 58%;
+  top: 8%;
+  animation-delay: 2s;
+  animation-duration: 3.4s;
+}
+.sparkles .spark:nth-child(19) {
+  left: 74%;
+  top: 52%;
+  animation-delay: 1.3s;
+  animation-duration: 4.9s;
+}
+.sparkles .spark:nth-child(20) {
+  left: 92%;
+  top: 22%;
+  animation-delay: 0.6s;
+  animation-duration: 3.6s;
+}
+.sparkles .spark:nth-child(21) {
+  left: 6%;
+  top: 52%;
+  animation-delay: 2.2s;
+  animation-duration: 4s;
+}
+.sparkles .spark:nth-child(22) {
+  left: 28%;
+  top: 86%;
+  animation-delay: 1.7s;
+  animation-duration: 3.6s;
+}
+.sparkles .spark:nth-child(23) {
+  left: 64%;
+  top: 86%;
+  animation-delay: 0.9s;
+  animation-duration: 4.1s;
+}
+.sparkles .spark:nth-child(24) {
+  left: 82%;
+  top: 86%;
+  animation-delay: 1.4s;
+  animation-duration: 3.8s;
+}
+
+/* Star placed above the title (in-flow) */
+.error-top-star {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 1rem;
+  color: var(--fg); /* make star use white via currentColor */
+  position: relative; /* container for absolute-centering the svg so starCool's translate works */
+}
+
+.error-top-star svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  transform-origin: 50% 50%;
+  transform: translate(-50%, -50%);
+  filter: drop-shadow(0 10px 24px rgba(255, 255, 255, 0.12))
+    drop-shadow(0 0 28px rgba(255, 255, 255, 0.16));
+  animation: starCool 5s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
+}
+
+.error-title {
+  font-weight: 800;
+  color: var(--fg);
+  margin: 0.6rem 0 0.4rem;
+  font-size: clamp(36px, 8vw, 72px);
+  letter-spacing: 0.06em;
+  animation: titleGlow 3.8s ease-in-out infinite;
+}
+
+/* Reuse portfolio morph styles inside the error title */
+.error-title .morph-container {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  vertical-align: baseline;
+  position: relative;
+}
+
+.error-title .letter-o {
+  display: none;
+}
+
+.error-title .star-morph {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1em;
+  height: 1em;
+  transform: translate(-50%, -50%);
+  animation: starCool 5s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
+}
+
+.error-subtitle {
+  color: var(--muted);
+  margin: 0 0 1.25rem;
+  font-size: clamp(14px, 2.4vw, 18px);
+}
+
+.error-cta a {
+  display: inline-block;
+  padding: 0.6rem 1rem;
+  background: #ffffff;
+  color: #000000;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 10px;
+  text-decoration: none;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  transition: transform 160ms ease, box-shadow 160ms ease, opacity 160ms ease;
+}
+
+.error-cta a:hover,
+.error-cta a:focus {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+  opacity: 0.98;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .error-cta a,
+  .error-cta a:focus,
+  .error-cta a:hover {
+    transform: none;
+    transition: none;
+  }
+}
+
+/* Strongly override site-wide .glow-on-hover behavior inside the 404 CTA */
+.error-cta .glow-on-hover,
+.error-cta .glow-on-hover:focus {
+  background: #ffffff !important;
+  color: #000000 !important;
+  text-shadow: none !important;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12) !important;
+}
+
+/* hover: keep colors but add an outer glow */
+.error-cta .glow-on-hover:hover,
+.error-cta .glow-on-hover:focus {
+  opacity: 0.98;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(255, 255, 255, 0.08),
+    0 12px 40px rgba(0, 0, 0, 0.18) !important;
+}
+
+/* active / click: invert colors */
+.error-cta .glow-on-hover:active {
+  background: #000000 !important;
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 8px 30px rgba(255, 255, 255, 0.18) !important;
+  transform: translateY(0) scale(0.98);
+}
+
+@keyframes starLoop {
+  0% {
+    transform: scale(1) rotate(0deg);
+    opacity: 0.95;
+  }
+  35% {
+    transform: scale(1.08) rotate(8deg);
+    opacity: 1;
+  }
+  65% {
+    transform: scale(1.05) rotate(-6deg);
+    opacity: 0.95;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 0.95;
+  }
+}
+
+@keyframes titleGlow {
+  0% {
+    text-shadow: 0 0 0 rgba(255, 255, 255, 0);
+  }
+  50% {
+    text-shadow: 0 6px 28px rgba(255, 209, 102, 0.12);
+  }
+  100% {
+    text-shadow: 0 0 0 rgba(255, 255, 255, 0);
+  }
+}
+
+/* subtle starfield layers behind content */
+.error-page::before,
+.error-page::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.error-page::before {
+  /* repeated small star shape (uses inline SVG data URI) */
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 185.47 245.47'><path d='M92.74,245.47s-8.55-83.99-28.03-103.48S0,115.73,0,115.73c0,0,45.34-3.16,64.82-22.65C83.52,74.38,92.74,0,92.74,0c0,0,13.42,74.95,31.24,92.77,20.36,20.36,61.49,22.96,61.49,22.96,0,0-43.95,8.54-61.68,26.26-20.46,20.46-31.06,103.48-31.06,103.48Z' fill='%23ffffff'/></svg>");
+  background-repeat: repeat;
+  background-size: 18px 18px; /* much smaller */
+  opacity: 0.08;
+}
+
+.error-page::after {
+  /* larger repeating star with gentle twinkle */
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 185.47 245.47'><path d='M92.74,245.47s-8.55-83.99-28.03-103.48S0,115.73,0,115.73c0,0,45.34-3.16,64.82-22.65C83.52,74.38,92.74,0,92.74,0c0,0,13.42,74.95,31.24,92.77,20.36,20.36,61.49,22.96,61.49,22.96,0,0-43.95,8.54-61.68,26.26-20.46,20.46-31.06,103.48-31.06,103.48Z' fill='%23ffffff'/></svg>");
+  background-repeat: repeat;
+  background-size: 48px 48px; /* smaller than before */
+  opacity: 0.03;
+  animation: starsTwinkle 6s linear infinite;
+}
+
+@keyframes starsTwinkle {
+  0% {
+    opacity: 0.04;
+  }
+  50% {
+    opacity: 0.09;
+  }
+  100% {
+    opacity: 0.04;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .error-top-star svg,
+  .error-title {
+    animation: none;
+  }
+  .sparkles .spark {
+    animation: none;
+    opacity: 0.06;
+  }
+}
+
+@media (max-width: 480px) {
+  .error-top-star {
+    width: 84px;
+    margin-bottom: 0.85rem;
+  }
+  .error-inner {
+    padding: 3rem 1rem;
+  }
+}
