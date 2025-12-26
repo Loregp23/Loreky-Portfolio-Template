@@ -48,7 +48,20 @@
   z-index: 101;
 }
 
-/* Theme Toggle - Mobile/Desktop visibility */
+.nav-controls {
+  /* Right side controls: theme toggle and hamburger menu (mobile) */
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  z-index: 101;
+}
+
+/*
+  Theme toggle visibility: desktop vs mobile
+  - .theme-toggle-desktop: hidden on mobile, shown on desktop
+  - .theme-toggle-mobile: shown on mobile, hidden on desktop
+  - .nav-links-toggle: only visible on desktop for theme toggle in nav links
+*/
 .nav-links-toggle,
 .theme-toggle-desktop {
   display: none; /* Hidden on mobile */

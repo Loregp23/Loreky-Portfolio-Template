@@ -5,9 +5,16 @@ body.light-mode .contact-title {
 body.light-mode .contact-star path {
   fill: #000 !important;
 }
+/*
+  COMPONENTS2.CSS
+  This file contains styles for the Projects, Contact, Footer, and related UI components, including light/dark mode adjustments, carousels, and scroll animations.
+*/
+
 /* --------------------------------------------------------------------------
-   9. Projects Section
-   -------------------------------------------------------------------------- */
+  9. Projects Section
+  Styles for the main projects area, including carousels and cards.
+  Handles both dark and light mode, and responsive layouts.
+  -------------------------------------------------------------------------- */
 .projects {
   background: rgba(0, 0, 0, 0.47);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -135,7 +142,13 @@ body.light-mode .indicator:hover {
   margin-top: 0;
 }
 
-/* Projects Carousel */
+/*
+  Projects Carousel: horizontal slider for project cards
+  - .projects-carousel: flex container for arrows and carousel
+  - .carousel-container: viewport for sliding cards
+  - .carousel-track: flex row of cards, animated with transform
+  - .project-carousel-card: each project (image + content)
+*/
 .projects-wrapper {
   width: 100%;
   max-width: none;
@@ -286,7 +299,9 @@ body.light-mode .project-carousel-card {
   letter-spacing: 0.05em;
 }
 
-/* Carousel Arrows */
+/*
+  Carousel Arrows: circular navigation buttons for carousels
+*/
 .carousel-arrow {
   width: 50px;
   height: 50px;
@@ -312,7 +327,9 @@ body.light-mode .project-carousel-card {
   transform: scale(0.95);
 }
 
-/* Carousel Indicators */
+/*
+  Carousel Indicators: dots below carousel to show current slide
+*/
 .carousel-indicators {
   display: flex;
   justify-content: center;
@@ -341,7 +358,9 @@ body.light-mode .project-carousel-card {
   background: rgba(255, 255, 255, 0.6);
 }
 
-/* Tablet and Desktop Layout */
+/*
+  Tablet and Desktop Layout: responsive adjustments for larger screens
+*/
 @media (min-width: 768px) {
   .projects-carousel {
     width: 90vw;
@@ -389,7 +408,9 @@ body.light-mode .project-carousel-card {
   }
 }
 
-/* Mobile adjustments */
+/*
+  Mobile adjustments: responsive tweaks for small screens
+*/
 @media (max-width: 767px) {
   .projects-carousel {
     padding: 0;
@@ -410,8 +431,9 @@ body.light-mode .project-carousel-card {
 }
 
 /* --------------------------------------------------------------------------
-   10. Contact Section
-   -------------------------------------------------------------------------- */
+  10. Contact Section
+  Styles for the contact/social links area
+  -------------------------------------------------------------------------- */
 
 .social-links {
   display: flex;
@@ -433,8 +455,9 @@ body.light-mode .social-links a:hover {
 }
 
 /* --------------------------------------------------------------------------
-   11. Footer
-   -------------------------------------------------------------------------- */
+  11. Footer
+  Styles for the site footer, including GitHub link and navigation
+  -------------------------------------------------------------------------- */
 .footer {
   padding: var(--space-lg) 0;
   text-align: center;
@@ -539,6 +562,7 @@ body.light-mode .social-links a:hover {
   }
 }
 
+/* Back-to-top floating button: fixed position, round, with hover effect */
 .back-to-top {
   position: fixed;
   right: var(--space-lg);
@@ -566,8 +590,9 @@ body.light-mode .back-to-top {
 }
 
 /* --------------------------------------------------------------------------
-   12. SCROLL REVEAL ANIMATIONS
-   -------------------------------------------------------------------------- */
+  12. SCROLL REVEAL ANIMATIONS
+  Animations for elements that appear as you scroll down the page
+  -------------------------------------------------------------------------- */
 .animate-on-scroll {
   opacity: 0;
   transform: translateY(30px);
@@ -580,7 +605,9 @@ body.light-mode .back-to-top {
   transform: translateY(0);
 }
 
-/* Staggered reveal animation */
+/*
+  Staggered reveal animation for groups of elements (e.g. project cards)
+*/
 [data-reveal-stagger] > * {
   opacity: 0;
   transform: translateY(20px);
@@ -612,8 +639,9 @@ body.light-mode .back-to-top {
 }
 
 /* --------------------------------------------------------------------------
-   13. ACCESSIBILITY: REDUCED MOTION
-   -------------------------------------------------------------------------- */
+  13. ACCESSIBILITY: REDUCED MOTION
+  Disables animations and transitions for users who prefer reduced motion
+  -------------------------------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -637,8 +665,9 @@ body.light-mode .back-to-top {
 }
 
 /* --------------------------------------------------------------------------
-   14. Mobile Adjustments
-   -------------------------------------------------------------------------- */
+  14. Mobile Adjustments
+  Hides nav links and tweaks footer for very small screens
+  -------------------------------------------------------------------------- */
 @media (max-width: 640px) {
   .nav-links {
     display: none;

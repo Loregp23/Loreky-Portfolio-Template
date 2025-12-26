@@ -1,5 +1,9 @@
-/* Clean 404 styles (fresh from scratch) */
+/*
+  404 PAGE STYLESHEET
+  This file styles the custom 404 error page, including layout, starfield background, animated sparkles, and call-to-action button.
+*/
 
+/* CSS custom properties for easy theme management */
 :root {
   --bg: #000000;
   --fg: #ffffff;
@@ -7,6 +11,9 @@
   --accent: #ffd166;
 }
 
+/*
+  Main error page container: centers content and sets background
+*/
 .error-page {
   min-height: 100vh;
   display: flex;
@@ -20,6 +27,9 @@
   position: relative;
 }
 
+/*
+  Inner content box: centers and constrains the error message
+*/
 .error-inner {
   width: 100%;
   max-width: 900px;
@@ -29,7 +39,10 @@
   z-index: 1;
 }
 
-/* small positioned sparks for random glow effect */
+/*
+    Container for animated spark SVGs ("sparkles") that float and glow randomly
+    These are absolutely positioned and pointer-events are disabled so they don't block UI
+  */
 .sparkles {
   position: absolute;
   inset: 0;
@@ -37,6 +50,9 @@
   z-index: 0;
 }
 
+/*
+  Each .spark is a small SVG star, animated to glow and scale for a twinkling effect
+*/
 .sparkles .spark {
   position: absolute;
   width: 10px;
@@ -51,6 +67,9 @@
   animation: sparkGlow 3.6s ease-in-out infinite;
 }
 
+/*
+  Animation for sparkles: fade in/out and scale for a glowing twinkle
+*/
 @keyframes sparkGlow {
   0%,
   100% {
@@ -63,7 +82,9 @@
   }
 }
 
-/* individual random-ish positions and staggered delays */
+/*
+  Each .spark is positioned and animated with a unique delay/duration for a random starfield look
+*/
 .sparkles .spark:nth-child(1) {
   left: 6%;
   top: 12%;
@@ -209,7 +230,9 @@
   animation-duration: 3.8s;
 }
 
-/* Star placed above the title (in-flow) */
+/*
+  Large star SVG above the error title, animated for visual interest
+*/
 .error-top-star {
   width: 120px;
   height: 120px;
@@ -231,6 +254,9 @@
   animation: starCool 5s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
 }
 
+/*
+  Main 404 title: bold, large, and glowing
+*/
 .error-title {
   font-weight: 800;
   color: var(--fg);
@@ -240,7 +266,9 @@
   animation: titleGlow 3.8s ease-in-out infinite;
 }
 
-/* Reuse portfolio morph styles inside the error title */
+/*
+  Morphing star effect inside the error title (reuses portfolio morph styles)
+*/
 .error-title .morph-container {
   display: inline-block;
   width: 1em;
@@ -263,12 +291,18 @@
   animation: starCool 5s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
 }
 
+/*
+  Subtitle below the main error title
+*/
 .error-subtitle {
   color: var(--muted);
   margin: 0 0 1.25rem;
   font-size: clamp(14px, 2.4vw, 18px);
 }
 
+/*
+  Call-to-action button: styled for high contrast and subtle animation
+*/
 .error-cta a {
   display: inline-block;
   padding: 0.6rem 1rem;
@@ -288,6 +322,9 @@
   opacity: 0.98;
 }
 
+/*
+  Accessibility: Remove animations for users who prefer reduced motion
+*/
 @media (prefers-reduced-motion: reduce) {
   .error-cta a,
   .error-cta a:focus,
@@ -297,7 +334,9 @@
   }
 }
 
-/* Strongly override site-wide .glow-on-hover behavior inside the 404 CTA */
+/*
+  Override site-wide .glow-on-hover for the 404 CTA to ensure consistent button style
+*/
 .error-cta .glow-on-hover,
 .error-cta .glow-on-hover:focus {
   background: #ffffff !important;
@@ -324,6 +363,9 @@
   transform: translateY(0) scale(0.98);
 }
 
+/*
+  Animation for the main star: gentle scaling and rotation for a "cool" effect
+*/
 @keyframes starLoop {
   0% {
     transform: scale(1) rotate(0deg);
@@ -343,6 +385,9 @@
   }
 }
 
+/*
+  Animation for the error title: subtle glowing text shadow
+*/
 @keyframes titleGlow {
   0% {
     text-shadow: 0 0 0 rgba(255, 255, 255, 0);
@@ -355,7 +400,11 @@
   }
 }
 
-/* subtle starfield layers behind content */
+/*
+  Starfield background layers: two ::before/::after pseudo-elements with repeated SVGs
+  - ::before: small, dense stars
+  - ::after: larger, faint stars with a twinkle animation
+*/
 .error-page::before,
 .error-page::after {
   content: "";
@@ -382,6 +431,9 @@
   animation: starsTwinkle 6s linear infinite;
 }
 
+/*
+  Animation for the large starfield layer: gentle opacity pulsing for twinkle
+*/
 @keyframes starsTwinkle {
   0% {
     opacity: 0.04;
@@ -405,6 +457,9 @@
   }
 }
 
+/*
+  Responsive adjustments for small screens
+*/
 @media (max-width: 480px) {
   .error-top-star {
     width: 84px;

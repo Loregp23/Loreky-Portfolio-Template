@@ -4,6 +4,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>ERROR 404 — Page Not Found</title>
+    <!--
+      404 PAGE HEAD
+      - Loads Inter font from Google Fonts
+      - Loads main site CSS and custom 404 page CSS
+    -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -14,7 +19,14 @@
     <link rel="stylesheet" href="./assets/css/404.css" />
   </head>
   <body>
+    <!--
+      404 PAGE BODY
+      - Main .error-page container centers content and applies starfield background
+      - .sparkles: absolutely positioned animated SVG stars for twinkling effect
+      - .error-inner: wraps the error message and call-to-action
+    -->
     <main class="error-page">
+      <!-- Animated sparkles: SVG stars for glowing background effect -->
       <div class="sparkles" aria-hidden="true">
         <span class="spark"></span><span class="spark"></span
         ><span class="spark"></span> <span class="spark"></span
@@ -30,7 +42,10 @@
         ><span class="spark"></span><span class="spark"></span>
       </div>
       <div class="error-inner">
-        <!-- Top centered looping star (in-flow) -->
+        <!--
+          Top centered looping star (SVG): visually connects to portfolio branding
+          Animated with CSS for a gentle floating effect
+        -->
         <div class="error-top-star" aria-hidden="true">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -44,12 +59,15 @@
           </svg>
         </div>
 
+        <!-- Main error title -->
         <h1 class="error-title">ERROR 404</h1>
 
+        <!-- Subtitle with user-friendly message -->
         <p class="error-subtitle">
           The page you were looking for could not be found.
         </p>
 
+        <!-- Call-to-action button to return home -->
         <div class="error-cta">
           <a class="glow-on-hover" href="/">Return Home</a>
         </div>

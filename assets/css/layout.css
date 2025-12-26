@@ -1,16 +1,23 @@
-/* --------------------------------------------------------------------------
-   3. Layout Components
-   -------------------------------------------------------------------------- */
 .container {
+  /*
+    Layout container: centers content and constrains max width
+    Used for main page sections
+  */
   width: min(96%, 1200px);
   margin-inline: auto;
 }
 
 .section {
+  /*
+    Section wrapper: vertical padding for each major page section
+  */
   padding: var(--space-2xl) 0;
 }
 
 .section-title {
+  /*
+    Section title: large, bold, centered heading for each section
+  */
   font-size: var(--text-3xl);
   font-weight: 700;
   margin-bottom: var(--space-xl);
@@ -20,12 +27,19 @@
 /* --------------------------------------------------------------------------
    5. Hero Section
    -------------------------------------------------------------------------- */
+
+/*
+  Hero section CSS variables for easy layout adjustments
+*/
 :root {
   --hero-padding-top: 6rem; /* changeable: space above hero content */
   --hero-padding-bottom: 6rem; /* changeable: space below hero content */
   --hero-min-height: 100vh; /* changeable: min height of hero (e.g. 80vh, 100vh) */
 }
 
+/*
+  Hero section: main landing area, vertically and horizontally centered
+*/
 .hero {
   position: relative;
   min-height: var(--hero-min-height);
@@ -38,6 +52,9 @@
   overflow: hidden;
 }
 
+/*
+  Hero background: gradient layer behind hero content
+*/
 .hero-bg {
   position: absolute;
   inset: 0;
@@ -45,19 +62,22 @@
   z-index: -1;
 }
 
-/* --------------------------------------------------------------------------
-   Hero Background Carousel
-   
-   Automatically cycles through background images with smooth fade transitions.
-   Includes parallax scroll effect on active slide.
-   -------------------------------------------------------------------------- */
 .hero-carousel {
+  /*
+    Hero background carousel: absolutely positioned, holds background slides
+    JS cycles through .carousel-slide children for animated backgrounds
+  */
   position: absolute;
   inset: 0;
   z-index: -1;
 }
 
 .carousel-slide {
+  /*
+    Each background image in the hero carousel
+    Fades in/out with opacity transition
+    Parallax effect for older browsers via background-attachment
+  */
   position: absolute;
   inset: 0;
   opacity: 0;
@@ -68,11 +88,19 @@
 }
 
 .carousel-slide.active {
+  /*
+    Active background slide: fully visible
+  */
   opacity: 1;
 }
 
 /* Fallback parallax for older browsers */
+
 @supports not (animation-timeline: scroll()) {
+  /*
+    Fallback for browsers that don't support scroll-linked animation
+    Uses background-attachment: fixed for parallax effect
+  */
   .carousel-slide {
     background-attachment: fixed;
   }
@@ -81,11 +109,18 @@
 /* --------------------------------------------------------------------------
    Hero Content
    -------------------------------------------------------------------------- */
+
+/*
+  Hero content: overlays the background, contains title, subtitle, and CTA
+*/
 .hero-content {
   position: relative;
   z-index: 1;
 }
 
+/*
+  Hero title: large, bold, animated glowing text
+*/
 .hero-title {
   font-size: clamp(3rem, 10vw, 8rem);
   font-weight: 800;
@@ -97,6 +132,9 @@
   animation: titleGlow 5s ease-in-out infinite;
 }
 
+/*
+  Animation for hero title: subtle glowing effect
+*/
 @keyframes titleGlow {
   0%,
   100% {
@@ -114,6 +152,10 @@
 }
 
 /* O replaced by Star */
+
+/*
+  Morph container: holds the animated star that replaces the "O" in the title
+*/
 .morph-container {
   position: relative;
   display: inline-block;
@@ -126,6 +168,9 @@
   display: none; /* Hide the O */
 }
 
+/*
+  Animated star SVG: replaces the "O" in the hero title
+*/
 .star-morph {
   position: absolute;
   top: 60%;
@@ -136,6 +181,9 @@
   animation: starCool 5s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
 }
 
+/*
+  Animation for morphing star: scale, rotate, and glow
+*/
 @keyframes starCool {
   0% {
     transform: translate(-50%, -50%) scale(0.85) rotate(0deg);
@@ -159,6 +207,9 @@
   }
 }
 
+/*
+  Hero subtitle: smaller text below the main title
+*/
 .hero-subtitle {
   font-size: var(--text-xl);
   color: rgba(255, 255, 255, 0.949); /* Always white with slight transparency */
@@ -166,6 +217,10 @@
 }
 
 /* Scroll Indicator */
+
+/*
+  Scroll indicator: animated arrow and label at bottom of hero section (mobile only)
+*/
 .scroll-indicator {
   position: absolute;
   bottom: var(--space-xl);
@@ -179,6 +234,9 @@
   font-size: var(--text-sm);
 }
 
+/*
+  Animated arrow for scroll indicator
+*/
 .scroll-arrow {
   width: 24px;
   height: 24px;
@@ -188,6 +246,9 @@
   animation: bounce 2s infinite;
 }
 
+/*
+  Animation for scroll indicator arrow: vertical bounce
+*/
 @keyframes bounce {
   0%,
   20%,
@@ -205,6 +266,10 @@
 }
 
 /* Hide scroll indicator on desktop */
+
+/*
+  Hide scroll indicator on desktop
+*/
 @media (min-width: 768px) {
   .scroll-indicator {
     display: none;

@@ -1,30 +1,3 @@
-/**
- * ==========================================================================
- * GRADE 1: VANILLA JAVASCRIPT PORTFOLIO DEMO
- * Scroll animations using IntersectionObserver
- * No frameworks, no dependencies — just modern JavaScript!
- * ==========================================================================
- *
- * 🎓 LEARNING OBJECTIVES:
- * - Understand the IntersectionObserver API for scroll-based triggers
- * - Learn why IntersectionObserver is better than scroll event listeners
- * - Implement accessible animations with prefers-reduced-motion
- * - Master the observer pattern for performant scroll detection
- *
- * 📚 WHAT IS INTERSECTIONOBSERVER?
- * IntersectionObserver is a browser API that efficiently detects when elements
- * enter or leave the viewport (or any ancestor element). It's the modern
- * replacement for scroll event listeners.
- *
- * ⚡ WHY NOT USE addEventListener('scroll', ...)?
- * - scroll events fire on EVERY PIXEL of scroll (60+ times per second!)
- * - This blocks the main thread and causes "jank" (stuttering)
- * - IntersectionObserver is optimized by the browser, runs asynchronously,
- *   and only fires when intersection state actually changes
- *
- * 🔗 MDN DOCS: https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API
- */
-
 // ==========================================================================
 // 1. INTERSECTIONOBSERVER CONFIGURATION
 // ==========================================================================
@@ -527,7 +500,16 @@ if (document.readyState === "loading") {
 }
 
 // ==========================================================================
-// PROJECTS CAROUSEL
+// PROJECTS CAROUSEL (Illustration)
+// This section manages the main projects carousel in the Illustration section.
+// HOW IT WORKS:
+// - Tracks the current visible project card (currentIndex)
+// - Handles left/right arrow clicks to move between cards
+// - Updates indicator dots to reflect the active card
+// - Supports keyboard navigation (arrow keys)
+// - Adds touch/swipe support for mobile devices
+// - Uses CSS transforms for smooth sliding transitions
+// - Prevents rapid clicks with an animation lock (isAnimating)
 // ==========================================================================
 
 function initProjectsCarousel() {
@@ -666,6 +648,14 @@ if (document.readyState === "loading") {
 
 // ==========================================================================
 // COMIC CAROUSEL
+// This section manages the carousel for comic projects.
+// HOW IT WORKS:
+// - Maintains the current comic card index (currentIndex)
+// - Listens for left/right arrow clicks to change cards
+// - Updates indicator dots for the active comic
+// - Supports touch/swipe gestures for mobile navigation
+// - Uses CSS transforms for smooth horizontal movement
+// - Prevents overlapping transitions with an animation lock
 // ==========================================================================
 
 function initComicCarousel() {
@@ -775,6 +765,14 @@ if (document.readyState === "loading") {
 
 // ==========================================================================
 // EDITORIAL CAROUSEL
+// This section manages the carousel for editorial illustration projects.
+// HOW IT WORKS:
+// - Tracks which editorial card is currently shown (currentIndex)
+// - Handles left/right arrow and indicator clicks to change cards
+// - Updates indicator dots to show the active editorial project
+// - Adds touch/swipe support for mobile users
+// - Uses CSS transforms for smooth slide transitions
+// - Prevents multiple transitions at once with an animation lock
 // ==========================================================================
 
 function initEditorialCarousel() {
